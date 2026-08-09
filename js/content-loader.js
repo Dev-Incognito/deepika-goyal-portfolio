@@ -39,7 +39,20 @@ function createQRModal() {
 
   document.getElementById('qrModalClose').addEventListener('click', closeModal);
   backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeModal(); });
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+  const iconMap = {
+  'E': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>',
+  'C': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>',
+  'G': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>',
+  'I': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>',
+  'L': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>',
+  'S': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>',
+  'Now': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>',
+  'Next': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>',
+  'Future': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>',
+};
+const getIcon = (key) => iconMap[key] || key;
+
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
 
   return {
     open(platform, label, handle, url) {
@@ -99,7 +112,6 @@ function renderHeroCinematic(data) {
     <div class="hero-cin-grain"></div>
     <div class="hero-cin-scanline"></div>
     <div class="hero-cin-content">
-      <div class="hero-cin-eyebrow">Personal Brand Portfolio</div>
       <h1 class="hero-cin-name">
         ${data.hero.nameFirst}
         <span class="cin-last">${data.hero.nameLast}</span>
@@ -272,15 +284,9 @@ function renderContact(data) {
   const oldRef = inner.querySelector('[data-block="references"]');
   if (oldRef) oldRef.remove();
 
-  const INFO_ICONS = {
-    'E': '<svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>',
-    'L': '<svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>',
-    'S': '<svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>'
-  };
-
   const detailsHtml = data.contact.info.map(item => `
     <div class="contact-detail-row">
-      <div class="contact-detail-icon">${INFO_ICONS[item.icon] || item.icon}</div>
+      <div class="contact-detail-icon">${getIcon(item.icon)}</div>
       <div>
         <div class="contact-detail-label">${item.label}</div>
         <div class="contact-detail-value">${item.text}</div>
@@ -473,7 +479,7 @@ function renderContact(data) {
 
     document.querySelector('.brand-values').innerHTML = data.brand.values.map((v, i) => `
       <div class="value-card reveal reveal-delay-${i + 1}">
-        <div class="value-icon">${v.icon}</div>
+        <div class="value-icon">${getIcon(v.icon)}</div>
         <h3>${v.title}</h3>
         <p>${v.desc}</p>
       </div>
@@ -571,7 +577,7 @@ function renderContact(data) {
 
     document.querySelector('.vision-pillars').innerHTML = data.vision.pillars.map((p, i) => `
       <div class="vision-pillar reveal reveal-delay-${i + 1}">
-        <div class="vision-pillar-icon">${p.icon}</div>
+        <div class="pillar-icon">${getIcon(p.icon)}</div>
         <h3>${p.title}</h3>
         <p>${p.desc}</p>
       </div>
