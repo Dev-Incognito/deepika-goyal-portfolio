@@ -21,9 +21,6 @@
       "#differentiators": {
         "background-color": "#000000"
       },
-      "#contact": {
-        "background-color": "#8c1aff"
-      },
       "section#contact > div.section-inner > div.contact-grid > div.contact-profile > div.contact-profile-header > div:nth-child(2) > div.contact-profile-tagline": {
         "color": "#ffffff"
       },
