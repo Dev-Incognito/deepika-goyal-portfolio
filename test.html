@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="test">Hello</p>
+<script>
+  const p = document.getElementById('test');
+  p.innerHTML = '<div class="line"><div class="word">Hello</div></div>';
+  const word = p.querySelector('div.line > div.word');
+  console.log("Found:", word !== null);
+  console.log("Path matches:", word.matches('p > div.line > div.word'));
+</script>
+</body>
+</html>

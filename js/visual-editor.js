@@ -1,4 +1,4 @@
-﻿/**
+/**
  * True WYSIWYG Visual Editor
  * Injected when URL contains ?edit=colors
  */
@@ -146,7 +146,13 @@
           if (sib.nodeType === Node.ELEMENT_NODE) nth++;
         }
         if (el.classList.length > 0) {
-          selector += '.' + Array.from(el.classList).join('.');
+          const fragileClasses = ['gsap-observed', 'split-applied', 'tilt-applied', 'reveal', 'line', 'word', 'char'];
+          const filtered = Array.from(el.classList).filter(c => !fragileClasses.includes(c) && !c.startsWith('reveal-delay-'));
+          if (filtered.length > 0) {
+            selector += '.' + filtered.join('.');
+          } else {
+            selector += `:nth-child(${nth})`;
+          }
         } else {
           selector += `:nth-child(${nth})`;
         }

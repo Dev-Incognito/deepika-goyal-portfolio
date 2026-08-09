@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body.theme-cinematic section#capabilities > div.section-inner > div.cap-visual > div.cap-row.reveal.gsap-observed > div.cap-item.tilt-applied > p.split-applied > div.line > div.word {
+  color: #ff0000 !important;
+}
+body.theme-cinematic p {
+  color: #eeeeee;
+}
+</style>
+</head>
+<body class="theme-cinematic">
+  <section id="capabilities">
+    <div class="section-inner">
+      <div class="cap-visual">
+        <div class="cap-row reveal gsap-observed">
+          <div class="cap-item tilt-applied">
+            <p class="split-applied">
+              <div class="line">
+                <div class="word">TEST-WORD</div>
+              </div>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    const word = document.querySelector('.word');
+    console.log("Color is:", window.getComputedStyle(word).color);
+  </script>
+</body>
+</html>

@@ -3,19 +3,19 @@
   "cinematic": {
     "vars": {},
     "elements": {
-      "section#hero > div.hero-cin-content > h1.hero-cin-name > span.cin-last > div.word > div.char": {
+      "section#hero > div.hero-cin-content > h1.hero-cin-name > span.cin-last > div > div": {
         "color": "#ffffff"
       },
-      "section#brand > div.section-inner > div.brand-grid > div.brand-values > div.value-card.reveal.reveal-delay-3.gsap-observed.tilt-applied": {
+      "section#brand > div.section-inner > div.brand-grid > div.brand-values > div.value-card": {
         "background-color": "#000000"
       },
-      "section#brand > div.section-inner > div.brand-grid > div.brand-values > div.value-card.reveal.reveal-delay-4.gsap-observed.tilt-applied": {
+      "section#brand > div.section-inner > div.brand-grid > div.brand-values > div.value-card": {
         "background-color": "#000000"
       },
-      "section#brand > div.section-inner > div.brand-grid > div.brand-values > div.value-card.reveal.reveal-delay-1.gsap-observed.tilt-applied": {
+      "section#brand > div.section-inner > div.brand-grid > div.brand-values > div.value-card": {
         "background-color": "#000000"
       },
-      "section#brand > div.section-inner > div.brand-grid > div.brand-values > div.value-card.reveal.reveal-delay-2.gsap-observed.tilt-applied": {
+      "section#brand > div.section-inner > div.brand-grid > div.brand-values > div.value-card": {
         "background-color": "#000000"
       },
       "#differentiators": {
@@ -24,10 +24,10 @@
       "#contact": {
         "background-color": "#8c1aff"
       },
-      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-profile > div.contact-profile-header > div:nth-child(2) > div.contact-profile-tagline": {
+      "section#contact > div.section-inner > div.contact-grid > div.contact-profile > div.contact-profile-header > div:nth-child(2) > div.contact-profile-tagline": {
         "color": "#ffffff"
       },
-      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-profile > div.contact-profile-header > div:nth-child(2) > h3.contact-profile-name": {
+      "section#contact > div.section-inner > div.contact-grid > div.contact-profile > div.contact-profile-header > div:nth-child(2) > h3.contact-profile-name": {
         "color": "#faf5ff"
       },
       "footer.page-footer": {
@@ -36,53 +36,53 @@
       "footer.page-footer > div.footer-brand": {
         "color": "#f9dcdc"
       },
-      "section#hero > div.hero-cin-content > h1.hero-cin-name > div.word > div.char": {
+      "section#hero > div.hero-cin-content > h1.hero-cin-name > div > div": {
         "color": "#ffffff"
       },
       "section#hero > div.hero-cin-content > p.hero-cin-statement": {
         "color": "#ffe0e0"
       },
-      "section#introduction > div.section-inner > h2.section-title.reveal.reveal-delay-1.gsap-observed.split-applied > div.line > div.word": {
+      "section#introduction > div.section-inner > h2.section-title > div > div": {
         "color": "#ffae00"
       },
-      "section#introduction > div.section-inner > div.intro-text.reveal.reveal-delay-2.gsap-observed > p.split-applied > div.line > div.word": {
+      "section#introduction > div.section-inner > div.intro-text > p > div > div": {
         "color": "#ffffff"
       },
-      "section#introduction > div.section-inner > div.intro-signature.reveal.reveal-delay-3.gsap-observed > div.name": {
+      "section#introduction > div.section-inner > div.intro-signature > div.name": {
         "color": "#ffffff"
       },
       "#mainNav": {
         "background-color": "#000000"
       },
-      "section#capabilities > div.section-inner > div.cap-visual > div.cap-row.reveal.gsap-observed > div.cap-item.tilt-applied > p.split-applied > div.line": {
+      "section#capabilities > div.section-inner > div.cap-visual > div.cap-row > div.cap-item > p > div": {
         "color": "#000000"
       },
-      "section#capabilities > div.section-inner > div.cap-visual > div.cap-row.reveal.gsap-observed > div.cap-item.tilt-applied > div.cap-bar-container": {
+      "section#capabilities > div.section-inner > div.cap-visual > div.cap-row > div.cap-item > div.cap-bar-container": {
         "background-color": "#ffa305"
       },
-      "section#capabilities > div.section-inner > div.cap-visual > div.cap-row.reveal.gsap-observed > div.cap-item.tilt-applied > h3.split-applied > div.line > div.word": {
+      "section#capabilities > div.section-inner > div.cap-visual > div.cap-row > div.cap-item > h3 > div > div": {
         "color": "#ffa600"
       },
-      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-social-panel > div.contact-social-heading": {
+      "section#contact > div.section-inner > div.contact-grid > div.contact-social-panel > div.contact-social-heading": {
         "color": "#ffae00"
       },
-      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-social-panel > div.social-icon-buttons > button.social-icon-btn": {
+      "section#contact > div.section-inner > div.contact-grid > div.contact-social-panel > div.social-icon-buttons > button.social-icon-btn": {
         "color": "#000000",
         "background-color": "#c8aa3c"
       },
-      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-social-panel > div.social-icon-buttons > button.social-icon-btn > div.social-btn-text > span.social-btn-name": {
+      "section#contact > div.section-inner > div.contact-grid > div.contact-social-panel > div.social-icon-buttons > button.social-icon-btn > div.social-btn-text > span.social-btn-name": {
         "color": "#fafafa"
       },
-      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-social-panel > div.social-icon-buttons > button.social-icon-btn > div.social-btn-text > span.social-btn-handle": {
+      "section#contact > div.section-inner > div.contact-grid > div.contact-social-panel > div.social-icon-buttons > button.social-icon-btn > div.social-btn-text > span.social-btn-handle": {
         "color": "#ffffff"
       },
-      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-profile > div.contact-details-list > div.contact-detail-row > div:nth-child(2) > div.contact-detail-label": {
+      "section#contact > div.section-inner > div.contact-grid > div.contact-profile > div.contact-details-list > div.contact-detail-row > div:nth-child(2) > div.contact-detail-label": {
         "color": "#ffd500"
       },
-      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-profile > div.contact-details-list > div.contact-detail-row > div.contact-detail-icon": {
+      "section#contact > div.section-inner > div.contact-grid > div.contact-profile > div.contact-details-list > div.contact-detail-row > div.contact-detail-icon": {
         "border-color": "#ffa600"
       },
-      "section#capabilities > div.section-inner > div.cap-visual > div.cap-row.reveal.gsap-observed > div.cap-item.tilt-applied": {
+      "section#capabilities > div.section-inner > div.cap-visual > div.cap-row > div.cap-item": {
         "background-color": "#ffffff"
       }
     }
