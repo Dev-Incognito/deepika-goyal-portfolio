@@ -1819,7 +1819,7 @@ a {
   z-index: 3;
   padding: 80px;
   padding-bottom: 100px;
-  max-width: 600px;
+  max-width: none;
   margin-right: auto;
   text-align: left;
 }
@@ -2759,18 +2759,18 @@ body.theme-cinematic .section,
 body.theme-cinematic #contact,
 body.theme-cinematic footer,
 body.theme-cinematic .nav {
-  background-color: #050505 !important;
-  background: #050505 !important;
-  color: #ffffff !important;
+  background-color: #050505;
+  background: #050505;
+  color: #ffffff;
 }
 
 body.theme-cinematic .value-card,
 body.theme-cinematic .vision-pillar,
 body.theme-cinematic .card,
 body.theme-cinematic .diff-block {
-  background: #0a0a0a !important;
-  border: 1px solid #222 !important;
-  color: #ffffff !important;
+  background: #0a0a0a;
+  border: 1px solid #222;
+  color: #ffffff;
 }
 
 body.theme-cinematic h1,
@@ -2782,7 +2782,7 @@ body.theme-cinematic .section-title,
 body.theme-cinematic .section-label,
 body.theme-cinematic .stat-num,
 body.theme-cinematic .nav-logo {
-  color: #c5a059 !important;
+  color: #c5a059;
 }
 
 body.theme-cinematic p,
@@ -2791,12 +2791,12 @@ body.theme-cinematic .contact-detail-value,
 body.theme-cinematic .info-val,
 body.theme-cinematic .footer-tagline,
 body.theme-cinematic .stat-label {
-  color: #eeeeee !important;
+  color: #eeeeee;
 }
 
 body.theme-cinematic .contact-detail-label,
 body.theme-cinematic .info-label {
-  color: #aaaaaa !important;
+  color: #aaaaaa;
 }
 
 body.theme-cinematic .contact-detail-icon,
@@ -2805,8 +2805,8 @@ body.theme-cinematic .pillar-icon,
 body.theme-cinematic .value-icon,
 body.theme-cinematic .info-icon,
 body.theme-cinematic .nav-links a:hover {
-  color: #c5a059 !important;
-  border-color: #c5a059 !important;
+  color: #c5a059;
+  border-color: #c5a059;
 }
 
 body.theme-cinematic .contact-detail-icon svg,
@@ -2814,16 +2814,17 @@ body.theme-cinematic .vision-pillar-icon svg,
 body.theme-cinematic .pillar-icon svg,
 body.theme-cinematic .value-icon svg,
 body.theme-cinematic .info-icon svg {
-  stroke: #c5a059 !important;
-  fill: none !important;
+  stroke: #c5a059;
+  fill: none;
 }
 
 body.theme-cinematic .section-label::before {
-  background: #c5a059 !important;
+  background: #c5a059;
 }
 
 body.theme-cinematic .contact-cta-text {
-  border-left-color: #c5a059 !important;
-  color: #eeeeee !important;
+  border-left-color: #c5a059;
+  color: #eeeeee;
 }
+
 

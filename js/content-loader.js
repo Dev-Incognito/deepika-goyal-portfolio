@@ -459,8 +459,15 @@ function renderContact(data) {
 
     // ── Global ──
     document.querySelector('.nav-brand').textContent = data.global.navBrand;
-    document.querySelector('.footer-brand').textContent = data.global.footerBrand;
-    document.querySelector('.footer-text').textContent = data.global.footerText;
+    if (flags['footer-brand-text'] === false) {
+      document.querySelector('.footer-brand').style.display = 'none';
+      document.querySelector('.footer-text').style.display = 'none';
+    } else {
+      document.querySelector('.footer-brand').style.display = '';
+      document.querySelector('.footer-text').style.display = '';
+      document.querySelector('.footer-brand').textContent = data.global.footerBrand;
+      document.querySelector('.footer-text').textContent = data.global.footerText;
+    }
 
     document.getElementById('navLinks').innerHTML = data.global.navLinks.map(l =>
       `<li><a href="#${l.id}">${l.label}</a></li>`
