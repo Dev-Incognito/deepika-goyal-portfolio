@@ -81,7 +81,7 @@ function renderHeroOrbital(data) {
       </div>
       <div class="hero-portrait">
         <div class="portrait-frame">
-          <img src="assets/portrait.png" alt="${data.hero.nameFirst} ${data.hero.nameLast}" class="portrait-img" fetchpriority="high">
+          <img src="assets/portrait.jpg" alt="${data.hero.nameFirst} ${data.hero.nameLast}" class="portrait-img" fetchpriority="high">
         </div>
       </div>
     </div>
@@ -93,7 +93,7 @@ function renderHeroCinematic(data) {
   hero.className = 'hero hero--cinematic';
   hero.innerHTML = `
     <div class="hero-cin-bg">
-      <img src="assets/portrait.png" class="hero-cin-portrait-bg" alt="" role="presentation" fetchpriority="high">
+      <img src="assets/portrait.jpg" class="hero-cin-portrait-bg" alt="" role="presentation" fetchpriority="high">
       <div class="hero-cin-overlay"></div>
     </div>
     <div class="hero-cin-grain"></div>
@@ -133,7 +133,7 @@ function renderHeroGalaxy(data) {
     <div class="hero-gal-content">
       <div class="hero-gal-orb"></div>
       <div class="hero-gal-portrait-wrap">
-        <img src="assets/portrait.png" alt="${data.hero.nameFirst}" fetchpriority="high">
+        <img src="assets/portrait.jpg" alt="${data.hero.nameFirst}" fetchpriority="high">
       </div>
       <div class="hero-gal-text">
         <h1 class="hero-gal-name"><span class="baffle-target">${data.hero.nameFirst}</span> <span class="baffle-target stroke-text">${data.hero.nameLast}</span></h1>
@@ -159,7 +159,7 @@ function renderHeroPookie(data) {
     <div class="hero-pook-content">
       <div class="hero-pook-card">
         <div class="hero-pook-portrait">
-          <img src="assets/portrait.png" alt="${data.hero.nameFirst}">
+          <img src="assets/portrait.jpg" alt="${data.hero.nameFirst}">
           <div class="pook-heart">💖</div>
           <div class="pook-heart pook-h2">✨</div>
         </div>
@@ -190,7 +190,7 @@ function renderHeroModern(data) {
         <h1 class="hero-mod-name"><span class="baffle-target">${data.hero.nameFirst}</span><br><span class="baffle-target">${data.hero.nameLast}</span></h1>
       </div>
       <div class="mod-cell mod-cell-2">
-        <img src="assets/portrait.png" alt="${data.hero.nameFirst}">
+        <img src="assets/portrait.jpg" alt="${data.hero.nameFirst}">
       </div>
       <div class="mod-cell mod-cell-3">
         <p class="hero-mod-statement">${data.hero.statement}</p>
@@ -220,7 +220,7 @@ function renderHeroProfessional(data) {
       </div>
       <div class="hero-pro-right">
         <div class="hero-pro-img-wrap">
-          <img src="assets/portrait.png" alt="${data.hero.nameFirst}">
+          <img src="assets/portrait.jpg" alt="${data.hero.nameFirst}">
         </div>
       </div>
     </div>
@@ -240,7 +240,7 @@ function renderHeroArtistic(data) {
     <div class="hero-art-foreground">
       <div class="hero-art-portrait">
         <div class="art-img-mask">
-          <img src="assets/portrait.png" alt="${data.hero.nameFirst}">
+          <img src="assets/portrait.jpg" alt="${data.hero.nameFirst}">
         </div>
         <div class="art-frame"></div>
       </div>
@@ -305,7 +305,7 @@ function renderContact(data) {
   grid.innerHTML = `
     <div class="contact-profile">
       <div class="contact-profile-header">
-        <img src="assets/portrait.png" class="contact-avatar" alt="${data.contact.cardName}" loading="lazy">
+        <img src="assets/portrait.jpg" class="contact-avatar" alt="${data.contact.cardName}" loading="lazy">
         <div>
           <h3 class="contact-profile-name">${data.contact.cardName}</h3>
           <div class="contact-profile-tagline">${data.contact.cardTagline}</div>
