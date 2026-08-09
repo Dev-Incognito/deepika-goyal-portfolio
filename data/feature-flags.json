@@ -39,5 +39,5 @@
   "portrait-tilt": true,
   "parallax-bg": true,
   "dividers": true,
-  "section-labels": true
+  "section-labels": false
 }
