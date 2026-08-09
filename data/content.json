@@ -43,7 +43,8 @@
       "Impact"
     ],
     "statement": "A dual-domain professional who brings people-first HR thinking and creative digital marketing together to build organisations that grow from the inside out.",
-    "scrollBtn": "Discover More"
+    "scrollBtn": "Discover More",
+    "font": "Montserrat"
   },
   "brand": {
     "sectionLabel": "01 - Personal Brand",
@@ -301,7 +302,7 @@
       {
         "platform": "instagram",
         "label": "Instagram",
-        "handle": "@workwithdeepika",
+        "handle": "@deepika_g",
         "url": "https://instagram.com/workwithdeepika"
       },
       {
@@ -309,12 +310,6 @@
         "label": "LinkedIn",
         "handle": "Deepika Goyal",
         "url": "https://linkedin.com/in/deepikagoyal"
-      },
-      {
-        "platform": "facebook",
-        "label": "Facebook",
-        "handle": "Deepika Goyal",
-        "url": "https://facebook.com/deepikagoyal"
       }
     ]
   }
