@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Admin - Astha Patel Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0c0b0f;--surf:#141218;--surf2:#1c1a22;--surf3:#24222a;
+  --bd:rgba(255,255,255,.07);--bdh:rgba(255,255,255,.14);
+  --acc:#C2727E;--acc-d:rgba(194,114,126,.12);--acc-g:rgba(194,114,126,.25);
+  --tx:#e4e2ed;--tx2:rgba(228,226,237,.55);--tx3:rgba(228,226,237,.3);
+  --ok:#5cba8a;--err:#e05c6e;--warn:#e8a84a;
+  --sw:230px;--th:58px;
+}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--tx);height:100vh;overflow:hidden;}
+#loginScreen{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:var(--bg);z-index:200;transition:opacity .5s,transform .5s;}
+#loginScreen.exit{opacity:0;transform:scale(.97);pointer-events:none;}
+.lw{display:flex;flex-direction:column;align-items:center;}
+.lbrand{font-size:.65rem;letter-spacing:.28em;text-transform:uppercase;color:var(--tx3);margin-bottom:38px;}
+.lcard{background:var(--surf);border:1px solid var(--bdh);border-radius:22px;padding:44px 40px 36px;width:340px;text-align:center;box-shadow:0 40px 80px rgba(0,0,0,.5),0 0 60px var(--acc-d);}
+.lmono{width:56px;height:56px;border-radius:50%;background:var(--acc-d);border:1px solid rgba(194,114,126,.35);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1rem;color:var(--acc);margin:0 auto 20px;letter-spacing:.08em;box-shadow:0 0 20px var(--acc-d);}
+.ltitle{font-size:1.05rem;font-weight:600;margin-bottom:4px;}
+.lsub{font-size:.75rem;color:var(--tx3);margin-bottom:30px;}
+.pdots{display:flex;justify-content:center;gap:12px;margin-bottom:28px;}
+.pdot{width:10px;height:10px;border-radius:50%;border:1.5px solid rgba(255,255,255,.15);transition:.18s;}
+.pdot.on{background:var(--acc);border-color:var(--acc);transform:scale(1.1);box-shadow:0 0 6px var(--acc-g);}
+.numpad{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;}
+.nk{background:var(--surf2);border:1px solid var(--bd);border-radius:11px;padding:15px 10px;font-size:1.05rem;font-weight:500;color:var(--tx);cursor:pointer;transition:.12s;font-family:'Inter',sans-serif;line-height:1;}
+.nk:hover{background:var(--surf3);border-color:var(--bdh);}
+.nk:active{transform:scale(.93);}
+.nk.del{font-size:.85rem;color:var(--tx2);}
+.nk.ent{background:var(--acc);color:#fff;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;border-color:var(--acc);}
+.nk.ent:hover{background:#b0666f;}
+.lerr{font-size:.78rem;color:var(--err);height:20px;margin-top:12px;}
+@keyframes shake{0%,100%{transform:translateX(0)}15%{transform:translateX(-8px)}35%{transform:translateX(8px)}55%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.lcard.shake{animation:shake .4s ease;}
+#dash{display:none;flex-direction:column;height:100vh;}
+#dash.vis{display:flex;}
+.tb{height:var(--th);background:var(--surf);border-bottom:1px solid var(--bd);display:flex;align-items:center;padding:0 20px;gap:16px;flex-shrink:0;z-index:50;}
+.tb-logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:.88rem;color:var(--acc);letter-spacing:.04em;text-decoration:none;}
+.tb-dot{width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 8px var(--acc-g);}
+.tb-sep{width:1px;height:18px;background:var(--bdh);}
+.tb-sec{font-size:.83rem;color:var(--tx2);flex:1;}
+.tb-stat{display:flex;align-items:center;gap:7px;font-size:.73rem;color:var(--tx3);}
+.stat-dot{width:6px;height:6px;border-radius:50%;background:var(--ok);transition:.3s;}
+.stat-dot.un{background:var(--warn);}
+.tb-acts{display:flex;gap:8px;}
+.btn{padding:8px 16px;border-radius:8px;font-size:.78rem;font-weight:500;cursor:pointer;transition:.18s;border:1px solid var(--bd);font-family:'Inter',sans-serif;letter-spacing:.02em;line-height:1;}
+.bghost{background:transparent;color:var(--tx2);}
+.bghost:hover{background:rgba(255,255,255,.05);color:var(--tx);}
+.bacc{background:var(--acc);color:#fff;border-color:var(--acc);}
+.bacc:hover{background:#b0666f;}
+.bsec{background:rgba(255,255,255,.05);color:var(--tx);}
+.bsec:hover{background:rgba(255,255,255,.09);}
+.dbbody{display:flex;flex:1;overflow:hidden;}
+.sb{width:var(--sw);background:var(--surf);border-right:1px solid var(--bd);display:flex;flex-direction:column;flex-shrink:0;overflow-y:auto;}
+.sb::-webkit-scrollbar{width:0;}
+.sbg{padding:18px 10px 8px;}
+.sbg+.sbg{border-top:1px solid var(--bd);}
+.sgl{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tx3);padding:0 10px;margin-bottom:8px;}
+.nb{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:8px;cursor:pointer;font-size:.83rem;color:var(--tx2);transition:.13s;width:100%;background:transparent;border:none;text-align:left;font-family:'Inter',sans-serif;}
+.nb:hover{background:rgba(255,255,255,.04);color:var(--tx);}
+.nb.act{background:var(--acc-d);color:var(--acc);}
+.ni{width:5px;height:5px;border-radius:50%;background:currentColor;opacity:.45;flex-shrink:0;}
+.main{flex:1;overflow-y:auto;padding:32px 36px;background:var(--bg);}
+.main::-webkit-scrollbar{width:5px;}
+.main::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);border-radius:3px;}
+.shd{margin-bottom:28px;}
+.shd h2{font-size:1.25rem;font-weight:600;letter-spacing:-.01em;}
+.shd p{font-size:.8rem;color:var(--tx2);margin-top:5px;line-height:1.55;}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.ff{display:flex;flex-direction:column;gap:6px;}
+.ff.s2{grid-column:1/-1;}
+.fl{font-size:.68rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--tx3);}
+.fi,.fta,.fsel{background:var(--surf2);border:1px solid var(--bd);border-radius:8px;padding:10px 13px;color:var(--tx);font-size:.85rem;font-family:'Inter',sans-serif;transition:.18s;width:100%;line-height:1.5;}
+.fi:focus,.fta:focus{outline:none;border-color:var(--acc);box-shadow:0 0 0 3px var(--acc-d);}
+.fta{resize:vertical;min-height:88px;}
+.divr{border:none;border-top:1px solid var(--bd);margin:26px 0;}
+.aed{display:flex;flex-direction:column;gap:10px;}
+.ai{background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:16px;}
+.ahd{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.at{font-size:.75rem;font-weight:600;color:var(--tx2);letter-spacing:.05em;}
+.ibtn{width:26px;height:26px;border-radius:6px;border:1px solid var(--bd);background:transparent;color:var(--tx2);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.85rem;transition:.15s;}
+.ibtn:hover{background:rgba(255,255,255,.07);color:var(--tx);}
+.ibtn.dl:hover{background:rgba(224,92,110,.14);border-color:var(--err);color:var(--err);}
+.abtn{width:100%;display:flex;align-items:center;justify-content:center;gap:8px;padding:10px;border:1px dashed rgba(255,255,255,.12);border-radius:10px;background:transparent;color:var(--tx3);font-size:.82rem;cursor:pointer;transition:.18s;font-family:'Inter',sans-serif;margin-top:10px;}
+.abtn:hover{border-color:var(--acc);color:var(--acc);background:var(--acc-d);}
+.tgl{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;}
+.tgi{display:flex;align-items:center;gap:4px;background:rgba(255,255,255,.05);border:1px solid var(--bd);border-radius:999px;padding:4px 11px;font-size:.76rem;}
+.tgi input{background:none;border:none;color:var(--tx);font-size:.76rem;font-family:inherit;padding:0;min-width:40px;}
+.tgi input:focus{outline:none;}
+.tgr{background:none;border:none;color:var(--tx3);cursor:pointer;font-size:1rem;line-height:1;padding:0 0 0 2px;transition:.13s;}
+.tgr:hover{color:var(--err);}
+.tarow{display:flex;gap:8px;}
+.pw{display:flex;align-items:center;gap:10px;}
+.pw .fi{max-width:80px;}
+.pbb{flex:1;height:4px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;}
+.pbf{height:100%;background:var(--acc);border-radius:2px;transition:width .3s;}
+.vcg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.vc{border:2px solid var(--bd);border-radius:12px;overflow:hidden;cursor:pointer;transition:.18s;}
+.vc:hover{border-color:var(--bdh);}
+.vc.sel{border-color:var(--acc);box-shadow:0 0 20px var(--acc-d);}
+.vcp{height:80px;display:flex;align-items:flex-end;padding:10px;}
+.vc-orb{background:linear-gradient(135deg,#faf6f2,#f0e4dc);}
+.vc-cin{background:linear-gradient(135deg,#070509,#2a0f1a);}
+.vc-gal{background:linear-gradient(135deg,#0b001a,#2a0845);}
+.vc-pook{background:linear-gradient(135deg,#ffe6f0,#ffd1df);}
+.vc-mod{background:linear-gradient(135deg,#ccff00,#000000);}
+.vc-pro{background:linear-gradient(135deg,#ffffff,#e2e8f0);}
+.vc-art{background:linear-gradient(135deg,#5f2c82,#49a09d);}
+.vcl{font-size:.55rem;font-weight:800;letter-spacing:.22em;text-transform:uppercase;}
+.vc-orb .vcl,.vc-pro .vcl{color:rgba(0,0,0,.5);}
+.vc-cin .vcl,.vc-gal .vcl,.vc-art .vcl{color:rgba(255,255,255,.35);}
+.vc-pook .vcl{color:#ff6b9e;}
+.vc-mod .vcl{color:#ccff00;}
+.vci{padding:10px 12px;background:var(--surf2);}
+.vcn{font-size:.82rem;font-weight:600;}
+.vcd{font-size:.7rem;color:var(--tx2);margin-top:2px;}
+.fr{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--bd);}
+.fr:last-child{border-bottom:none;}
+.flb{font-size:.84rem;}
+.fky{font-size:.68rem;color:var(--tx3);font-family:monospace;margin-top:2px;}
+.tgl-sw{position:relative;width:40px;height:22px;flex-shrink:0;}
+.tgl-sw input{opacity:0;width:0;height:0;}
+.tgl-rail{position:absolute;inset:0;background:rgba(255,255,255,.1);border-radius:11px;cursor:pointer;transition:.2s;}
+.tgl-rail::before{content:'';position:absolute;width:16px;height:16px;background:#fff;border-radius:50%;top:3px;left:3px;transition:.2s;}
+.tgl-sw input:checked+.tgl-rail{background:var(--acc);}
+.tgl-sw input:checked+.tgl-rail::before{transform:translateX(18px);}
+.jed{background:rgba(0,0,0,.35);border:1px solid var(--bd);border-radius:10px;padding:18px;font-family:monospace;font-size:.78rem;line-height:1.72;color:#c9d1d9;width:100%;min-height:380px;resize:vertical;}
+.jed:focus{outline:none;border-color:var(--acc);}
+.jst{font-size:.72rem;margin-top:6px;color:var(--tx3);}
+.toast{position:fixed;bottom:24px;right:24px;background:var(--surf);border:1px solid var(--bd);border-radius:10px;padding:13px 18px;font-size:.83rem;box-shadow:0 8px 32px rgba(0,0,0,.5);transform:translateY(20px);opacity:0;transition:.3s;z-index:9999;max-width:330px;}
+.toast.show{transform:translateY(0);opacity:1;}
+.toast.ok{border-color:var(--ok);}
+.toast.er{border-color:var(--err);}
+.toast.inf{border-color:var(--acc);}
+.mbd{position:fixed;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(10px);z-index:5000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:.28s;}
+.mbd.open{opacity:1;pointer-events:auto;}
+.modal{background:var(--surf);border:1px solid var(--bdh);border-radius:18px;padding:32px;width:440px;box-shadow:0 24px 64px rgba(0,0,0,.6);transform:translateY(16px);transition:.28s;}
+.mbd.open .modal{transform:translateY(0);}
+.modal h3{font-size:1.05rem;font-weight:600;margin-bottom:8px;}
+.modal p{font-size:.82rem;color:var(--tx2);line-height:1.6;margin-bottom:18px;}
+.mhint{font-size:.7rem;color:var(--tx3);margin-top:5px;}
+.macts{display:flex;gap:10px;justify-content:flex-end;margin-top:22px;}
+.pprog{display:flex;flex-direction:column;gap:8px;margin-top:16px;}
+.pst{display:flex;align-items:center;gap:10px;font-size:.8rem;color:var(--tx2);}
+.psi{width:18px;height:18px;border-radius:50%;border:1.5px solid var(--bdh);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.65rem;}
+.pst.done .psi{background:var(--ok);border-color:var(--ok);color:#fff;}
+.pst.fail .psi{background:var(--err);border-color:var(--err);color:#fff;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.pst.act .psi{border-color:var(--acc);animation:spin 1s linear infinite;}
+.subhdr{font-size:.78rem;font-weight:600;color:var(--tx2);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;}
+@media (max-width:768px){
+  .tb{flex-wrap:wrap;height:auto;padding:12px 20px;gap:10px;}
+  .tb-sec{width:100%;order:3;margin-top:4px;}
+  .dbbody{flex-direction:column;}
+  .sb{width:100%;flex-direction:row;border-right:none;border-bottom:1px solid var(--bd);padding:8px;height:auto;overflow-x:auto;}
+  .sbg{display:flex;gap:8px;padding:0;border:none !important;margin-right:12px;align-items:center;}
+  .sgl{display:none;}
+  .nb{white-space:nowrap;width:auto;padding:6px 12px;}
+  .main{padding:20px;}
+  .fg,.vcg{grid-template-columns:1fr;}
+  .modal{width:calc(100% - 40px);margin:20px;padding:24px;}
+  .tarow{flex-direction:column;}
+  #lcard{width:90%;padding:30px 20px;}
+  .lbrand{text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<div id="loginScreen">
+  <div class="lw">
+    <div class="lbrand">Astha Patel - Portfolio Admin</div>
+    <div class="lcard" id="lcard">
+      <div class="lmono">AP</div>
+      <div class="ltitle">Admin Panel</div>
+      <div class="lsub">Enter your 6-digit access PIN</div>
+      <div class="pdots" id="pdots">
+        <div class="pdot"></div><div class="pdot"></div><div class="pdot"></div>
+        <div class="pdot"></div><div class="pdot"></div><div class="pdot"></div>
+      </div>
+      <div class="numpad" id="numpad"></div>
+      <div class="lerr" id="lerr"></div>
+    </div>
+  </div>
+</div>
+
+<div id="dash">
+  <div class="tb">
+    <a class="tb-logo" href="../" target="_blank"><div class="tb-dot"></div>AP Admin</a>
+    <div class="tb-sep"></div>
+    <div class="tb-sec" id="tbSec">Dashboard</div>
+    <div class="tb-stat"><div class="stat-dot" id="sdot"></div><span id="stext">All changes saved</span></div>
+    <div class="tb-acts">
+      <button class="btn bghost" onclick="clearPrev()">Clear Preview</button>
+      <button class="btn bacc" onclick="openPub()">Publish to GitHub</button>
+      <button class="btn bghost" onclick="doOut()">Log Out</button>
+    </div>
+  </div>
+  <div class="dbbody">
+    <div class="sb">
+      <div class="sbg">
+        <div class="sgl">Content</div>
+        <button class="nb act" id="n-hero"           onclick="show('hero')"><span class="ni"></span>Hero</button>
+        <button class="nb"     id="n-brand"          onclick="show('brand')"><span class="ni"></span>Personal Brand</button>
+        <button class="nb"     id="n-strengths"      onclick="show('strengths')"><span class="ni"></span>Core Strengths</button>
+        <button class="nb"     id="n-differentiators" onclick="show('differentiators')"><span class="ni"></span>Differentiators</button>
+        <button class="nb"     id="n-exposure"       onclick="show('exposure')"><span class="ni"></span>Business Exposure</button>
+        <button class="nb"     id="n-capabilities"   onclick="show('capabilities')"><span class="ni"></span>Capabilities</button>
+        <button class="nb"     id="n-vision"         onclick="show('vision')"><span class="ni"></span>Career Vision</button>
+        <button class="nb"     id="n-introduction"   onclick="show('introduction')"><span class="ni"></span>Introduction</button>
+        <button class="nb"     id="n-contact"        onclick="show('contact')"><span class="ni"></span>Contact</button>
+        <button class="nb"     id="n-global"         onclick="show('global')"><span class="ni"></span>Global Settings</button>
+      </div>
+      <div class="sbg">
+        <div class="sgl">System</div>
+        <button class="nb" id="n-colors" onclick="show('colors')"><span class="ni"></span>Theme Colors</button>
+        <button class="nb" id="n-flags" onclick="show('flags')"><span class="ni"></span>Feature Flags</button>
+        <button class="nb" id="n-raw"   onclick="show('raw')"><span class="ni"></span>Raw JSON</button>
+      </div>
+    </div>
+    <div class="main" id="main"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="mbd" id="pubModal">
+  <div class="modal">
+    <h3>Publish to GitHub</h3>
+    <p>Commits data/content.json and data/feature-flags.json to the repo. Vercel auto-deploys within ~30 seconds.</p>
+
+    <div class="pprog" id="pprog" style="display:none;"></div>
+    <div class="macts" id="macts">
+      <button class="btn bghost" onclick="closePub()">Cancel</button>
+      <button class="btn bacc" id="pubBtn" onclick="doPub()">Publish Now</button>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+const PIN='739391',RO='Dev-Incognito',RN='astha-patel-portfolio',LSC='astha-admin-content',LSF='astha-portfolio-flags',LST='astha-admin-theme-colors',SA='astha-admin-auth',ST='astha-github-token';
+const SLABS={hero:'Hero / Cover',brand:'Personal Brand',strengths:'Core Strengths',differentiators:'Differentiators',exposure:'Business Exposure',capabilities:'Capabilities',vision:'Career Vision',introduction:'Introduction',contact:'Contact',global:'Global Settings',colors:'Theme Colors',flags:'Feature Flags',raw:'Raw JSON'};
+let content={},flags={},themeColors={},cur='hero';
+
+let ent='';
+(function(){
+  const p=document.getElementById('numpad');
+  ['1','2','3','4','5','6','7','8','9','del','0','ent'].forEach((k,idx)=>{
+    const b=document.createElement('button');
+    const disp=k==='del'?'backspace':k==='ent'?'Enter':k;
+    b.className='nk'+(k==='del'?' del':k==='ent'?' ent':'');
+    b.textContent=k==='del'?'\u232B':k==='ent'?'\u2713':k;
+    b.onclick=()=>hk(k==='del'?'del':k==='ent'?'ent':k);
+    p.appendChild(b);
+  });
+})();
+
+function hk(k){
+  if(k==='del')ent=ent.slice(0,-1);
+  else if(k==='ent'){chk();return;}
+  else if(ent.length<6)ent+=k;
+  rd();
+  if(ent.length===6)setTimeout(chk,160);
+}
+function rd(){document.querySelectorAll('.pdot').forEach((d,i)=>d.classList.toggle('on',i<ent.length));}
+function chk(){
+  if(ent===PIN){
+    sessionStorage.setItem(SA,'1');
+    const ls=document.getElementById('loginScreen');
+    ls.classList.add('exit');
+    setTimeout(()=>{ls.style.display='none';document.getElementById('dash').classList.add('vis');initDash();},500);
+  }else{
+    const c=document.getElementById('lcard');c.classList.add('shake');
+    document.getElementById('lerr').textContent='Incorrect PIN. Try again.';
+    setTimeout(()=>{c.classList.remove('shake');document.getElementById('lerr').textContent='';ent='';rd();},600);
+  }
+}
+document.addEventListener('keydown',e=>{
+  const ls=document.getElementById('loginScreen');
+  if(ls&&ls.style.display!=='none'&&!ls.classList.contains('exit')){
+    if(e.key>='0'&&e.key<='9')hk(e.key);
+    else if(e.key==='Backspace')hk('del');
+    else if(e.key==='Enter')hk('ent');
+  }
+});
+
+async function initDash(){await load();show('hero');}
+async function load(){
+  const lc=localStorage.getItem(LSC);
+  if(lc){try{content=JSON.parse(lc);}catch(e){await fc();}}else{await fc();}
+  const lf=localStorage.getItem(LSF);
+  if(lf){try{flags=JSON.parse(lf);}catch(e){await ff2();}}else{await ff2();}
+  const lt=localStorage.getItem(LST);
+  if(lt){try{themeColors=JSON.parse(lt);}catch(e){await ft();}}else{await ft();}
+}
+async function fc(){try{const r=await fetch('../data/content.json?'+Date.now());content=await r.json();}catch(e){toast('Could not load content.json','er');}}
+async function ff2(){try{const r=await fetch('../data/feature-flags.json?'+Date.now());flags=await r.json();}catch(e){flags={};}}
+async function ft(){try{const r=await fetch('../data/theme-colors.json?'+Date.now());themeColors=await r.json();}catch(e){themeColors={};}}
+
+function sv(){localStorage.setItem(LSC,JSON.stringify(content));localStorage.setItem(LSF,JSON.stringify(flags));localStorage.setItem(LST,JSON.stringify(themeColors));setSt(false);}
+let stm;function dsv(){setSt(true);clearTimeout(stm);stm=setTimeout(sv,700);}
+function setSt(u){document.getElementById('sdot').classList.toggle('un',u);document.getElementById('stext').textContent=u?'Unsaved changes':'Saved locally';}
+function clearPrev(){if(!confirm('Clear all local edits and revert to published content?'))return;localStorage.removeItem(LSC);localStorage.removeItem(LSF);localStorage.removeItem(LST);toast('Cleared. Reloading...','inf');setTimeout(()=>location.reload(),1200);}
+function doOut(){sessionStorage.removeItem(SA);location.reload();}
+
+function show(n){
+  cur=n;
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('act'));
+  const nb=document.getElementById('n-'+n);if(nb)nb.classList.add('act');
+  document.getElementById('tbSec').textContent=SLABS[n]||n;
+  const fns={hero:rHero,brand:rBrand,strengths:rStr,differentiators:rDiff,exposure:rExp,capabilities:rCap,vision:rVis,introduction:rIntro,contact:rCon,global:rGlob,colors:rColors,flags:rFlags,raw:rRaw};
+  if(fns[n])document.getElementById('main').innerHTML=fns[n]();
+}
+
+function esc(v){return String(v||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function fld(l,h,s2=false){return '<div class="ff'+(s2?' s2':'')+'"><label class="fl">'+l+'</label>'+h+'</div>';}
+function inp(ex,v){return '<input type="text" class="fi" value="'+esc(v)+'" oninput="'+ex+'=this.value;dsv();">';}
+function ta(ex,v){return '<textarea class="fta" oninput="'+ex+'=this.value;dsv();">'+esc(v)+'</textarea>';}
+function hdr(t,d){return '<div class="shd"><h2>'+t+'</h2><p>'+d+'</p></div>';}
+function sh(t){return '<div class="subhdr">'+t+'</div>';}
+
+const FONTS = ['Default', 'Inter', 'Roboto', 'Open Sans', 'Montserrat', 'Lato', 'Poppins', 'Oswald', 'Roboto Mono', 'Raleway', 'Playfair Display', 'Merriweather', 'Nunito', 'Ubuntu', 'Rubik', 'Lora', 'Work Sans', 'Fira Sans', 'Quicksand', 'Barlow', 'Mulish', 'Inconsolata', 'PT Sans', 'Titillium Web', 'DM Sans', 'IBM Plex Sans', 'Josefin Sans', 'Cabin', 'Libre Franklin', 'Dancing Script', 'Anton', 'Bebas Neue', 'Mukta', 'Karla', 'Teko', 'Fjalla One', 'Dosis', 'Bitter', 'Arimo', 'Varela Round', 'Pacifico', 'Hind', 'Zilla Slab', 'Righteous', 'Cinzel', 'Archivo Black', 'Lobster', 'EB Garamond', 'Caveat', 'Comfortaa'];
+function fontSel(ex, v) {
+  const opts = FONTS.map(f => '<option value="'+(f==='Default'?'':f)+'"'+(v===f?' selected':'')+'>'+f+'</option>').join('');
+  return '<select class="fsel" onchange="'+ex+'=this.value;dsv();">'+opts+'</select>';
+}
+
+
+function rHero(){
+  const h=content.hero||{},v=flags['hero-variant']||'orbital';
+  const VS=[
+    {id:'cinematic',n:'Cinematic',d:'Dark film aesthetic',cl:'vc-cin',l:'CINEMATIC'},
+    {id:'orbital',n:'Orbital',d:'Classic split layout',cl:'vc-orb',l:'ORBITAL'},
+    {id:'galaxy',n:'Galaxy',d:'Deep space immersion',cl:'vc-gal',l:'GALAXY'},
+    {id:'pookie',n:'Pookie',d:'Soft cute pastels',cl:'vc-pook',l:'POOKIE'},
+    {id:'modern',n:'Modern',d:'Brutalist high contrast',cl:'vc-mod',l:'MODERN'},
+    {id:'professional',n:'Professional',d:'Corporate minimal',cl:'vc-pro',l:'PROFESSION'},
+    {id:'artistic',n:'Artistic',d:'Overengineered 3D',cl:'vc-art',l:'ARTISTIC'}
+  ];
+  return hdr('Hero / Cover','First thing visitors see. Pick a variant and edit copy.')+
+  '<div class="fg">'+
+  fld('Section Font',fontSel('content.hero.font',h.font))+
+  fld('First Name',inp('content.hero.nameFirst',h.nameFirst||''))+
+  fld('Last Name',inp('content.hero.nameLast',h.nameLast||''))+
+  fld('Statement',ta('content.hero.statement',h.statement||''),true)+
+  fld('Scroll Button',inp('content.hero.scrollBtn',h.scrollBtn||''))+
+  '</div><hr class="divr">'+
+  '<div class="ff s2" style="margin-bottom:18px;"><label class="fl">Tagline Words</label>'+
+  '<div class="tgl">'+
+  (h.tagline||[]).map((t,i)=>'<div class="tgi"><input value="'+esc(t)+'" style="width:'+(Math.max(t.length,4)+1)+'ch" oninput="content.hero.tagline['+i+']=this.value;this.style.width=(Math.max(this.value.length,4)+1)+\'ch\';dsv();"><button class="tgr" onclick="content.hero.tagline.splice('+i+',1);sv();show(\'hero\');">&#215;</button></div>').join('')+
+  '</div><div class="tarow"><input type="text" class="fi" id="ntag" placeholder="New word" style="max-width:180px;"><button class="btn bsec" onclick="atag()">+ Add</button></div></div>'+
+  '<hr class="divr"><div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">'+sh('Website Theme Variant')+'<a href="../" target="_blank" class="btn bacc" style="text-decoration:none;">Preview Theme &uarr;</a><a href="#" onclick="show(\'colors\');return false;" class="btn bsec" style="text-decoration:none;margin-left:8px;">Edit Colors &rarr;</a></div>'+
+  '<div class="vcg">'+VS.map(vr=>'<div class="vc'+(v===vr.id?' sel':'')+'" onclick="setV(\''+vr.id+'\')"><div class="vcp '+vr.cl+'"><div class="vcl">'+vr.l+'</div></div><div class="vci"><div class="vcn">'+vr.n+'</div><div class="vcd">'+vr.d+'</div></div></div>').join('')+'</div>';
+}
+function atag(){const v=document.getElementById('ntag').value.trim();if(!v)return;if(!content.hero.tagline)content.hero.tagline=[];content.hero.tagline.push(v);sv();show('hero');}
+function setV(id){flags['hero-variant']=id;sv();show('hero');toast('Hero variant set to "'+id+'". Publish to deploy.','inf');}
+
+function rBrand(){
+  const b=content.brand||{};
+  return hdr('Personal Brand','"Who I Am" section.')+
+  '<div class="fg">'+
+  fld('Section Font',fontSel('content.brand.font',b.font))+
+  fld('Section Label',inp('content.brand.sectionLabel',b.sectionLabel||''))+
+  fld('Section Title',inp('content.brand.sectionTitle',b.sectionTitle||''))+
+  fld('Subtitle',ta('content.brand.sectionSubtitle',b.sectionSubtitle||''),true)+
+  fld('Brand Quote',ta('content.brand.quote',b.quote||''),true)+
+  fld('Philosophy Title',inp('content.brand.philosophyTitle',b.philosophyTitle||''),true)+
+  fld('Philosophy Text',ta('content.brand.philosophyText',b.philosophyText||''),true)+
+  '</div><hr class="divr">'+sh('Value Cards')+
+  '<div class="aed">'+
+  (b.values||[]).map((v,i)=>
+    '<div class="ai"><div class="ahd"><div class="at">Value #'+(i+1)+'</div><button class="ibtn dl" onclick="content.brand.values.splice('+i+',1);sv();show(\'brand\');">X</button></div>'+
+    '<div class="fg">'+
+    fld('Icon','<input type="text" class="fi" value="'+esc(v.icon||'')+'" maxlength="2" oninput="content.brand.values['+i+'].icon=this.value;dsv();">')+
+    fld('Title','<input type="text" class="fi" value="'+esc(v.title||'')+'" oninput="content.brand.values['+i+'].title=this.value;dsv();">')+
+    fld('Description','<textarea class="fta" oninput="content.brand.values['+i+'].desc=this.value;dsv();">'+esc(v.desc||'')+'</textarea>',true)+
+    '</div></div>'
+  ).join('')+
+  '</div><button class="abtn" onclick="content.brand.values=content.brand.values||[];content.brand.values.push({icon:\'X\',title:\'New\',desc:\'\'});sv();show(\'brand\');">+ Add Value Card</button>';
+}
+
+function rStr(){
+  const s=content.strengths||{};
+  return hdr('Core Strengths','Skills timeline.')+
+  '<div class="fg">'+
+  fld('Section Font',fontSel('content.strengths.font',s.font))+
+  fld('Section Label',inp('content.strengths.sectionLabel',s.sectionLabel||''))+
+  fld('Section Title',inp('content.strengths.sectionTitle',s.sectionTitle||''))+
+  fld('Subtitle',ta('content.strengths.sectionSubtitle',s.sectionSubtitle||''),true)+
+  '</div><hr class="divr">'+sh('Timeline Items')+
+  '<div class="aed">'+
+  (s.timeline||[]).map((item,i)=>
+    '<div class="ai"><div class="ahd"><div class="at">'+esc(item.role||'Item #'+(i+1))+'</div><button class="ibtn dl" onclick="content.strengths.timeline.splice('+i+',1);sv();show(\'strengths\');">X</button></div>'+
+    '<div class="fg">'+
+    fld('Period','<input type="text" class="fi" value="'+esc(item.period||'')+'" oninput="content.strengths.timeline['+i+'].period=this.value;dsv();">')+
+    fld('Role','<input type="text" class="fi" value="'+esc(item.role||'')+'" oninput="content.strengths.timeline['+i+'].role=this.value;dsv();">')+
+    fld('Company','<input type="text" class="fi" value="'+esc(item.company||'')+'" oninput="content.strengths.timeline['+i+'].company=this.value;dsv();">',true)+
+    fld('Description','<textarea class="fta" oninput="content.strengths.timeline['+i+'].desc=this.value;dsv();">'+esc(item.desc||'')+'</textarea>',true)+
+    '</div>'+
+    '<div class="ff" style="margin-top:10px;"><label class="fl">Skill Tags</label>'+
+    '<div class="tgl">'+
+    (item.skills||[]).map((sk,si)=>'<div class="tgi"><input value="'+esc(sk)+'" style="width:'+(sk.length+2)+'ch" oninput="content.strengths.timeline['+i+'].skills['+si+']=this.value;dsv();"><button class="tgr" onclick="content.strengths.timeline['+i+'].skills.splice('+si+',1);show(\'strengths\');">x</button></div>').join('')+
+    '</div><button class="abtn" style="max-width:180px;padding:6px;" onclick="const t=prompt(\'Add skill tag:\');if(t){content.strengths.timeline['+i+'].skills=content.strengths.timeline['+i+'].skills||[];content.strengths.timeline['+i+'].skills.push(t);sv();show(\'strengths\');}">+ Tag</button></div>'+
+    '</div>'
+  ).join('')+
+  '</div><button class="abtn" onclick="content.strengths.timeline=content.strengths.timeline||[];content.strengths.timeline.push({period:\'\',role:\'New Strength\',company:\'\',desc:\'\',skills:[]});sv();show(\'strengths\');">+ Add Timeline Item</button>';
+}
+
+function rDiff(){
+  const d=content.differentiators||{};
+  return hdr('Differentiators','"What Sets Me Apart" - numbered cards.')+
+  '<div class="fg">'+
+  fld('Section Font',fontSel('content.differentiators.font',d.font))+
+  fld('Section Label',inp('content.differentiators.sectionLabel',d.sectionLabel||''))+
+  fld('Section Title',inp('content.differentiators.sectionTitle',d.sectionTitle||''))+
+  fld('Subtitle',ta('content.differentiators.sectionSubtitle',d.sectionSubtitle||''),true)+
+  '</div><hr class="divr">'+
+  '<div class="aed">'+
+  (d.cards||[]).map((c,i)=>
+    '<div class="ai"><div class="ahd"><div class="at">'+esc(c.number)+' - '+esc(c.title)+'</div><button class="ibtn dl" onclick="content.differentiators.cards.splice('+i+',1);sv();show(\'differentiators\');">X</button></div>'+
+    '<div class="fg">'+
+    fld('Number','<input type="text" class="fi" value="'+esc(c.number||'')+'" oninput="content.differentiators.cards['+i+'].number=this.value;dsv();">')+
+    fld('Title','<input type="text" class="fi" value="'+esc(c.title||'')+'" oninput="content.differentiators.cards['+i+'].title=this.value;dsv();">')+
+    fld('Description','<textarea class="fta" oninput="content.differentiators.cards['+i+'].desc=this.value;dsv();">'+esc(c.desc||'')+'</textarea>',true)+
+    '</div></div>'
+  ).join('')+
+  '</div><button class="abtn" onclick="const n=String((content.differentiators.cards||[]).length+1).padStart(2,\'0\');content.differentiators.cards=content.differentiators.cards||[];content.differentiators.cards.push({number:n,title:\'New\',desc:\'\'});sv();show(\'differentiators\');">+ Add Card</button>';
+}
+
+function rExp(){
+  const e=content.exposure||{};
+  return hdr('Business Exposure','"Learning Business From the Inside".')+
+  '<div class="fg">'+
+  fld('Section Font',fontSel('content.exposure.font',e.font))+
+  fld('Section Label',inp('content.exposure.sectionLabel',e.sectionLabel||''))+
+  fld('Section Title',inp('content.exposure.sectionTitle',e.sectionTitle||''))+
+  fld('Subtitle',ta('content.exposure.sectionSubtitle',e.sectionSubtitle||''),true)+
+  fld('Paragraph 1',ta('content.exposure.narrativeP1',e.narrativeP1||''),true)+
+  fld('Paragraph 2',ta('content.exposure.narrativeP2',e.narrativeP2||''),true)+
+  fld('Paragraph 3',ta('content.exposure.narrativeP3',e.narrativeP3||''),true)+
+  '</div><hr class="divr">'+sh('Highlights')+
+  '<div class="aed">'+
+  (e.highlights||[]).map((h,i)=>
+    '<div class="ai"><div class="ahd"><div class="at">'+esc(h.title)+'</div><button class="ibtn dl" onclick="content.exposure.highlights.splice('+i+',1);sv();show(\'exposure\');">X</button></div>'+
+    '<div class="fg">'+
+    fld('Title','<input type="text" class="fi" value="'+esc(h.title||'')+'" oninput="content.exposure.highlights['+i+'].title=this.value;dsv();">')+
+    fld('Description','<textarea class="fta" oninput="content.exposure.highlights['+i+'].desc=this.value;dsv();">'+esc(h.desc||'')+'</textarea>',true)+
+    '</div></div>'
+  ).join('')+
+  '</div><button class="abtn" onclick="content.exposure.highlights=content.exposure.highlights||[];content.exposure.highlights.push({title:\'New\',desc:\'\'});sv();show(\'exposure\');">+ Add Highlight</button>';
+}
+
+function rCap(){
+  const c=content.capabilities||{};
+  return hdr('Capabilities','"What I Bring With Me" - progress bars.')+
+  '<div class="fg">'+
+  fld('Section Font',fontSel('content.capabilities.font',c.font))+
+  fld('Section Label',inp('content.capabilities.sectionLabel',c.sectionLabel||''))+
+  fld('Section Title',inp('content.capabilities.sectionTitle',c.sectionTitle||''))+
+  fld('Subtitle',ta('content.capabilities.sectionSubtitle',c.sectionSubtitle||''),true)+
+  '</div><hr class="divr">'+
+  '<div class="aed">'+
+  (c.items||[]).map((item,i)=>
+    '<div class="ai"><div class="ahd"><div class="at">'+esc(item.title)+'</div><button class="ibtn dl" onclick="content.capabilities.items.splice('+i+',1);sv();show(\'capabilities\');">X</button></div>'+
+    '<div class="fg">'+
+    fld('Title','<input type="text" class="fi" value="'+esc(item.title||'')+'" oninput="content.capabilities.items['+i+'].title=this.value;dsv();">')+
+    '<div class="ff"><label class="fl">Progress</label><div class="pw"><input type="text" class="fi" value="'+esc(item.progress||'80%')+'" oninput="content.capabilities.items['+i+'].progress=this.value;this.closest(\'.pw\').querySelector(\'.pbf\').style.width=this.value;dsv();"><div class="pbb"><div class="pbf" style="width:'+esc(item.progress||'80%')+'"></div></div></div></div>'+
+    fld('Description','<textarea class="fta" style="min-height:60px;" oninput="content.capabilities.items['+i+'].desc=this.value;dsv();">'+esc(item.desc||'')+'</textarea>',true)+
+    '</div></div>'
+  ).join('')+
+  '</div><button class="abtn" onclick="content.capabilities.items=content.capabilities.items||[];content.capabilities.items.push({title:\'New\',progress:\'80%\',desc:\'\'});sv();show(\'capabilities\');">+ Add Capability</button>';
+}
+
+function rVis(){
+  const v=content.vision||{};
+  return hdr('Career Vision','"Where I Am Heading" - pillars.')+
+  '<div class="fg">'+
+  fld('Section Font',fontSel('content.vision.font',v.font))+
+  fld('Section Label',inp('content.vision.sectionLabel',v.sectionLabel||''))+
+  fld('Section Title',inp('content.vision.sectionTitle',v.sectionTitle||''))+
+  fld('Vision Statement',ta('content.vision.statement',v.statement||''),true)+
+  fld('Closing Quote',ta('content.vision.closingQuote',v.closingQuote||''),true)+
+  '</div><hr class="divr">'+sh('Vision Pillars')+
+  '<div class="aed">'+
+  (v.pillars||[]).map((p,i)=>
+    '<div class="ai"><div class="ahd"><div class="at">'+esc(p.title)+'</div><button class="ibtn dl" onclick="content.vision.pillars.splice('+i+',1);sv();show(\'vision\');">X</button></div>'+
+    '<div class="fg">'+
+    fld('Icon','<input type="text" class="fi" value="'+esc(p.icon||'')+'" oninput="content.vision.pillars['+i+'].icon=this.value;dsv();">')+
+    fld('Title','<input type="text" class="fi" value="'+esc(p.title||'')+'" oninput="content.vision.pillars['+i+'].title=this.value;dsv();">')+
+    fld('Description','<textarea class="fta" oninput="content.vision.pillars['+i+'].desc=this.value;dsv();">'+esc(p.desc||'')+'</textarea>',true)+
+    '</div></div>'
+  ).join('')+
+  '</div><button class="abtn" onclick="content.vision.pillars=content.vision.pillars||[];content.vision.pillars.push({icon:\'\',title:\'New Pillar\',desc:\'\'});sv();show(\'vision\');">+ Add Pillar</button>';
+}
+
+function rIntro(){
+  const n=content.introduction||{};
+  return hdr('Personal Introduction','"In My Own Words" - the personal letter.')+
+  '<div class="fg">'+
+  fld('Section Font',fontSel('content.introduction.font',n.font))+
+  fld('Section Label',inp('content.introduction.sectionLabel',n.sectionLabel||''))+
+  fld('Section Title',inp('content.introduction.sectionTitle',n.sectionTitle||''))+
+  fld('Signature Name',inp('content.introduction.signature',n.signature||''),true)+
+  '</div><hr class="divr">'+sh('Paragraphs')+
+  '<div class="aed">'+
+  (n.paragraphs||[]).map((p,i)=>
+    '<div class="ai"><div class="ahd"><div class="at">Paragraph '+(i+1)+'</div><button class="ibtn dl" onclick="content.introduction.paragraphs.splice('+i+',1);sv();show(\'introduction\');">X</button></div>'+
+    '<textarea class="fta" style="min-height:100px;" oninput="content.introduction.paragraphs['+i+']=this.value;dsv();">'+esc(p)+'</textarea></div>'
+  ).join('')+
+  '</div><button class="abtn" onclick="content.introduction.paragraphs=content.introduction.paragraphs||[];content.introduction.paragraphs.push(\'\');sv();show(\'introduction\');">+ Add Paragraph</button>';
+}
+
+function rCon(){
+  const c=content.contact||{};
+  return hdr('Contact','Final section - details, social links, QR codes.')+
+  '<div class="fg">'+
+  fld('Section Font',fontSel('content.contact.font',c.font))+
+  fld('Section Label',inp('content.contact.sectionLabel',c.sectionLabel||''))+
+  fld('Section Title',inp('content.contact.sectionTitle',c.sectionTitle||''))+
+  fld('Card Name',inp('content.contact.cardName',c.cardName||''))+
+  fld('Card Tagline',inp('content.contact.cardTagline',c.cardTagline||''))+
+  fld('Footer Quote',ta('content.contact.footer',c.footer||''),true)+
+  fld('References Text',inp('content.contact.references',c.references||''),true)+
+  '</div><hr class="divr">'+sh('Contact Info Items')+
+  '<div class="aed">'+
+  (c.info||[]).map((item,i)=>
+    '<div class="ai"><div class="ahd"><div class="at">'+esc(item.label||item.icon)+'</div><button class="ibtn dl" onclick="content.contact.info.splice('+i+',1);sv();show(\'contact\');">X</button></div>'+
+    '<div class="fg">'+
+    fld('Icon','<input type="text" class="fi" value="'+esc(item.icon||'')+'" maxlength="3" oninput="content.contact.info['+i+'].icon=this.value;dsv();">')+
+    fld('Label','<input type="text" class="fi" value="'+esc(item.label||'')+'" oninput="content.contact.info['+i+'].label=this.value;dsv();">')+
+    fld('Value','<input type="text" class="fi" value="'+esc(item.text||'')+'" oninput="content.contact.info['+i+'].text=this.value;dsv();">',true)+
+    '</div></div>'
+  ).join('')+
+  '</div><button class="abtn" onclick="content.contact.info=content.contact.info||[];content.contact.info.push({icon:\'@\',label:\'New\',text:\'\'});sv();show(\'contact\');">+ Add Contact Item</button>'+
+  '<hr class="divr">'+sh('Social Links (QR Codes)')+
+  '<div class="aed">'+
+  (c.social||[]).map((s,i)=>
+    '<div class="ai"><div class="ahd"><div class="at">'+esc(s.label)+'</div><button class="ibtn dl" onclick="content.contact.social.splice('+i+',1);sv();show(\'contact\');">X</button></div>'+
+    '<div class="fg">'+
+    fld('Platform ID','<input type="text" class="fi" value="'+esc(s.platform||'')+'" placeholder="instagram/x/facebook" oninput="content.contact.social['+i+'].platform=this.value;dsv();">')+
+    fld('Label','<input type="text" class="fi" value="'+esc(s.label||'')+'" oninput="content.contact.social['+i+'].label=this.value;dsv();">')+
+    fld('Handle','<input type="text" class="fi" value="'+esc(s.handle||'')+'" oninput="content.contact.social['+i+'].handle=this.value;dsv();">')+
+    fld('Profile URL','<input type="url" class="fi" value="'+esc(s.url||'')+'" oninput="content.contact.social['+i+'].url=this.value;dsv();">',true)+
+    '</div></div>'
+  ).join('')+
+  '</div><button class="abtn" onclick="content.contact.social=content.contact.social||[];content.contact.social.push({platform:\'instagram\',label:\'Instagram\',handle:\'@handle\',url:\'https://instagram.com/\'});sv();show(\'contact\');">+ Add Social Link</button>';
+}
+
+function rGlob(){
+  const g=content.global||{};
+  return hdr('Global Settings','Navigation and footer text.')+
+  '<div class="fg">'+
+  fld('Section Font',fontSel('content.global.font',g.font))+
+  fld('Nav Brand Name',inp('content.global.navBrand',g.navBrand||''))+
+  fld('Footer Brand',inp('content.global.footerBrand',g.footerBrand||''))+
+  fld('Footer Tagline',inp('content.global.footerText',g.footerText||''),true)+
+  '</div><hr class="divr">'+sh('Navigation Links')+
+  '<div class="aed">'+
+  (g.navLinks||[]).map((lnk,i)=>
+    '<div class="ai"><div class="fg">'+
+    fld('Section ID','<input type="text" class="fi" value="'+esc(lnk.id||'')+'" oninput="content.global.navLinks['+i+'].id=this.value;dsv();">')+
+    fld('Label','<input type="text" class="fi" value="'+esc(lnk.label||'')+'" oninput="content.global.navLinks['+i+'].label=this.value;dsv();">')+
+    '</div></div>'
+  ).join('')+
+  '</div>';
+}
+
+const FLAB={'lenis-scroll':'Smooth Physics Scrolling (Lenis)','gift-wrap':'Gift Wrap Opening Effect','confetti-effect':'Confetti Celebration (after unwrapping)',animations:'Enable all scroll animations','scroll-progress':'Scroll progress bar',navigation:'Navigation bar','back-to-top':'Back to top button',footer:'Page footer','hero-section':'Hero section','hero-name':'Name in hero','hero-tagline':'Tagline in hero','hero-statement':'Statement in hero','hero-portrait':'Portrait in hero','hero-scroll-btn':'Scroll button','hero-bg-blobs':'Background blobs','section-brand':'01 - Personal Brand','section-strengths':'02 - Core Strengths','section-differentiators':'03 - Differentiators','section-exposure':'04 - Business Exposure','section-capabilities':'05 - Capabilities','section-vision':'06 - Career Vision','section-introduction':'07 - Introduction','section-contact':'08 - Contact','brand-quote':'Brand quote','brand-values':'Value cards','brand-philosophy':'Philosophy block','strengths-timeline':'Timeline line','strengths-tags':'Skill tags','cap-bars':'Capability progress bars','cap-descriptions':'Capability descriptions','vision-pillars':'Vision pillars','vision-closing-quote':'Closing quote','contact-portrait':'Portrait in contact','contact-info':'Contact details list','contact-social':'Social media buttons','contact-references':'References line','magnetic-hover':'3D card tilt on hover','portrait-tilt':'Portrait parallax tilt','parallax-bg':'Parallax background scroll',dividers:'Section dividers','section-labels':'Section number labels'};
+function rFlags(){
+  const rows=Object.entries(flags).filter(([k])=>k!=='hero-variant').map(([key,val])=>
+    '<div class="fr"><div><div class="flb">'+(FLAB[key]||key)+'</div><div class="fky">'+key+'</div></div>'+
+    '<label class="tgl-sw"><input type="checkbox" '+(val!==false?'checked':'')+' onchange="flags[\''+key+'\']=this.checked;dsv();"><span class="tgl-rail"></span></label></div>'
+  ).join('');
+  return hdr('Feature Flags','Toggle every section and visual effect.')+'<div style="background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:0 16px;">'+rows+'</div>';
+}
+
+function rRaw(){
+  return hdr('Raw JSON','Edit content, flags, and theme colors JSON directly. Changes apply when JSON is valid.')+
+  '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;">'+
+  '<div><div class="subhdr">content.json</div><textarea class="jed" id="rc" oninput="onRC(this.value)">'+esc(JSON.stringify(content,null,2))+'</textarea><div class="jst" id="rcst">Ready</div></div>'+
+  '<div><div class="subhdr">feature-flags.json</div><textarea class="jed" id="rf" oninput="onRF(this.value)">'+esc(JSON.stringify(flags,null,2))+'</textarea><div class="jst" id="rfst">Ready</div></div>'+
+  '<div><div class="subhdr">theme-colors.json</div><textarea class="jed" id="rt" oninput="onRT(this.value)">'+esc(JSON.stringify(themeColors,null,2))+'</textarea><div class="jst" id="rtst">Ready</div></div>'+
+  '</div>';
+}
+function onRC(v){try{content=JSON.parse(v);document.getElementById('rcst').textContent='Valid JSON';document.getElementById('rcst').style.color='var(--ok)';dsv();}catch(e){document.getElementById('rcst').textContent=e.message;document.getElementById('rcst').style.color='var(--err)';}}
+function onRF(v){try{flags=JSON.parse(v);document.getElementById('rfst').textContent='Valid JSON';document.getElementById('rfst').style.color='var(--ok)';dsv();}catch(e){document.getElementById('rfst').textContent=e.message;document.getElementById('rfst').style.color='var(--err)';}}
+function onRT(v){try{themeColors=JSON.parse(v);document.getElementById('rtst').textContent='Valid JSON';document.getElementById('rtst').style.color='var(--ok)';dsv();}catch(e){document.getElementById('rtst').textContent=e.message;document.getElementById('rtst').style.color='var(--err)';}}
+
+function rColors(){
+  return hdr('Theme Colors','Visual Editor allows you to customize colors directly on the live portfolio.')+
+    '<div style="background:var(--surf);border:1px solid var(--bd);border-radius:12px;padding:32px;text-align:center;">'+
+    '<p style="margin-bottom:20px;color:var(--tx2);font-size:0.9rem;">Click the button below to launch the live site in Edit Mode. You will see edit icons next to key elements on the page.</p>'+
+    '<a href="../?edit=colors" target="_blank" class="btn bacc" style="text-decoration:none;font-size:0.9rem;padding:12px 24px;">Launch Visual Theme Editor &rarr;</a>'+
+    '</div>';
+}
+
+function openPub(){document.getElementById('pprog').style.display='none';document.getElementById('macts').style.display='flex';document.getElementById('pubBtn').textContent='Publish Now';document.getElementById('pubBtn').onclick=doPub;document.getElementById('pubModal').classList.add('open');}
+function closePub(){document.getElementById('pubModal').classList.remove('open');}
+async function doPub(){
+  document.getElementById('macts').style.display='none';
+  const pp=document.getElementById('pprog');pp.style.display='flex';
+  const steps=[
+    {l:'Commit data/content.json',fn:()=>ghC('data/content.json',content)},
+    {l:'Commit data/feature-flags.json',fn:()=>ghC('data/feature-flags.json',flags)},
+    {l:'Commit data/theme-colors.json',fn:()=>ghC('data/theme-colors.json',themeColors)},
+    {l:'Triggering Vercel redeploy',fn:()=>new Promise(r=>setTimeout(r,900))}
+  ];
+  pp.innerHTML=steps.map((s,i)=>'<div class="pst" id="ps'+i+'"><div class="psi">*</div><span>'+s.l+'</span></div>').join('');
+  let ok=true;
+  for(let i=0;i<steps.length;i++){
+    const el=document.getElementById('ps'+i);
+    el.classList.add('act');el.querySelector('.psi').textContent='o';
+    try{
+      await steps[i].fn();
+      el.classList.remove('act');el.classList.add('done');el.querySelector('.psi').textContent='ok';
+    }catch(e){
+      el.classList.remove('act');el.classList.add('fail');el.querySelector('.psi').textContent='!';
+      pp.insertAdjacentHTML('beforeend','<p style="font-size:.75rem;color:var(--err);margin-top:8px;">'+e.message+'</p>');
+      ok=false;break;
+    }
+  }
+  document.getElementById('macts').style.display='flex';
+  document.getElementById('pubBtn').textContent='Close';document.getElementById('pubBtn').onclick=closePub;
+  if(ok){toast('Published! Vercel is deploying.','ok');setSt(false);}else{toast('Publish failed. Check Vercel logs.','er');}
+}
+async function ghC(path,data){
+  const pr=await fetch('/api/publish',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({path,data})});
+  if(!pr.ok){const e=await pr.json();throw new Error('POST '+path+': '+(e.error||e.message||pr.statusText));}
+}
+
+let tt;
+function toast(m,tp=''){const t=document.getElementById('toast');t.textContent=m;t.className='toast show '+(tp||'');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),3600);}
+
+if(sessionStorage.getItem(SA)==='1'){document.getElementById('loginScreen').style.display='none';document.getElementById('dash').classList.add('vis');initDash();}
+</script>
+</body>
+</html>

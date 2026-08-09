@@ -1,0 +1,326 @@
+{
+  "global": {
+    "navBrand": "Deepika Goyal",
+    "navLinks": [
+      {
+        "id": "brand",
+        "label": "Brand"
+      },
+      {
+        "id": "strengths",
+        "label": "Strengths"
+      },
+      {
+        "id": "differentiators",
+        "label": "What Sets Me Apart"
+      },
+      {
+        "id": "exposure",
+        "label": "Experience"
+      },
+      {
+        "id": "capabilities",
+        "label": "Capabilities"
+      },
+      {
+        "id": "vision",
+        "label": "Vision"
+      },
+      {
+        "id": "contact",
+        "label": "Contact"
+      }
+    ],
+    "footerBrand": "Deepika Goyal",
+    "footerText": ""
+  },
+  "hero": {
+    "nameFirst": "Deepika",
+    "nameLast": "Goyal",
+    "tagline": [
+      "People",
+      "Strategy",
+      "Impact"
+    ],
+    "statement": "A dual-domain professional who brings people-first HR thinking and creative digital marketing together to build organisations that grow from the inside out.",
+    "scrollBtn": "Discover More"
+  },
+  "brand": {
+    "sectionLabel": "01 - Personal Brand",
+    "sectionTitle": "Who I Am",
+    "sectionSubtitle": "I am Deepika. An HR professional and digital marketer based in Sangrur, Punjab, with a genuine belief that the best organisations are built on two things: the right people and the right story.",
+    "quote": "I entered the professional world with a BBA and a clear sense of purpose. Over nearly two years in HR and more than a year in digital marketing, I have learned that strategy without people is just theory, and creativity without data is just noise. I sit at the intersection of both, and that is where I do my best work.",
+    "values": [
+      {
+        "icon": "E",
+        "title": "Empathy",
+        "desc": "Every decision I make in HR starts with a simple question: how does this affect the person on the other side? Empathy is not a soft skill for me. It is a professional discipline that shapes how I hire, how I manage, and how I lead."
+      },
+      {
+        "icon": "C",
+        "title": "Creativity",
+        "desc": "Whether I am designing a social media campaign or building an onboarding experience, I bring a designer's eye to everything I do. Good work is not just functional. It is something people remember."
+      },
+      {
+        "icon": "G",
+        "title": "Growth",
+        "desc": "I have spent two years actively building skills that most professionals spend a career collecting. I integrated AI tools into my workflow before it was mainstream. I do not wait for the future to arrive. I go to meet it."
+      },
+      {
+        "icon": "I",
+        "title": "Integrity",
+        "desc": "In HR, trust is everything. I handle sensitive information, manage difficult conversations, and make decisions that affect people's careers. I take that responsibility seriously and I never cut corners."
+      }
+    ],
+    "philosophyTitle": "Professional Philosophy",
+    "philosophyText": "The way I see it, great HR and great marketing are solving the same problem: <strong style=\"font-weight: 600; color: var(--charcoal);\">how do you make someone feel like they belong?</strong> In HR, you do that for employees. In marketing, you do it for customers. I have learned to do both, and that combination is rare."
+  },
+  "strengths": {
+    "sectionLabel": "02 - Core Strengths",
+    "sectionTitle": "What I Am Built For",
+    "sectionSubtitle": "These strengths were not developed in a classroom. They were built through nearly two years of managing real people, running real HR operations, and growing real audiences on social media.",
+    "timeline": [
+      {
+        "period": "HR Management",
+        "role": "People Operations from End to End",
+        "company": "Nearly 2 Years of Hands-On HR Practice",
+        "desc": "From the first job posting to the final exit interview, I have managed the full employee lifecycle. I designed onboarding programs that made new hires feel at home from day one. I ran performance cycles that were fair, clear, and actually useful. I handled employee relations with care and professionalism, resolving conflicts before they became crises. HR is not administration for me. It is people strategy.",
+        "skills": [
+          "Recruitment and Staffing",
+          "Employee Onboarding",
+          "Training and Development",
+          "Performance Management",
+          "Employee Relations",
+          "HR Analytics and Reporting"
+        ]
+      },
+      {
+        "period": "Digital Marketing",
+        "role": "Content, Campaigns, and Community Building",
+        "company": "1 Year of Social Media and Brand Management",
+        "desc": "I planned and executed social media strategies across Instagram, LinkedIn, and Facebook. I built content calendars, designed visuals in Canva, analysed engagement metrics, and refined strategy based on what the data told me. I also integrated AI tools into the workflow to produce more content in less time without losing quality. Every post I put out was intentional. Every campaign had a purpose.",
+        "skills": [
+          "Social Media Strategy",
+          "Canva Design",
+          "Content Calendar Planning",
+          "Performance Analytics",
+          "AI-Powered Content Creation",
+          "Brand Storytelling"
+        ]
+      },
+      {
+        "period": "Communication",
+        "role": "Clear, Confident, and Always Appropriate",
+        "company": "Multilingual and Adaptable Across Contexts",
+        "desc": "I communicate fluently in English and Hindi, and I can hold a conversation in Punjabi. More importantly, I know how to adjust my communication style for the audience in front of me. A candidate in an interview needs encouragement and clarity. A manager needs directness and data. A social media audience needs a story. I switch between these naturally because I genuinely understand people.",
+        "skills": [
+          "English - Fluent",
+          "Hindi - Fluent",
+          "Punjabi - Conversational",
+          "Professional Writing",
+          "Stakeholder Communication",
+          "Cross-functional Collaboration"
+        ]
+      }
+    ]
+  },
+  "differentiators": {
+    "sectionLabel": "03 - What Sets Me Apart",
+    "sectionTitle": "Beyond the Ordinary",
+    "sectionSubtitle": "These are the things that make my profile unusual. Not just skills, but combinations of skills that most professionals in my field do not have.",
+    "cards": [
+      {
+        "number": "01",
+        "title": "I Bridge HR and Marketing",
+        "desc": "Most HR professionals have no marketing instinct, and most marketers have no HR depth. I have both. This means I can build employer branding campaigns, write job posts that actually attract the right people, and align internal culture with external brand identity. That is a rare capability."
+      },
+      {
+        "number": "02",
+        "title": "I Use AI as a Daily Tool",
+        "desc": "I actively integrate AI tools into my HR and marketing workflows. From automating repetitive recruitment tasks to scaling content production, I use technology to do more with less. I am not waiting to learn AI. I am already using it."
+      },
+      {
+        "number": "03",
+        "title": "I Design, Not Just Communicate",
+        "desc": "With expert-level Canva skills, I produce professional visual content for job postings, social media, internal communications, and HR materials. In most teams, design work goes to a separate person. I do not need to wait for one."
+      },
+      {
+        "number": "04",
+        "title": "I Lead with Data",
+        "desc": "I track HR metrics. I analyse social media performance. I use Excel at an advanced level to build reports that help leaders make better decisions. I do not just do the work. I measure it, evaluate it, and improve it."
+      },
+      {
+        "number": "05",
+        "title": "I Build Things That Last",
+        "desc": "Every onboarding program I built was designed to outlast me. Every social media strategy I developed was built on systems, not just individual posts. I think in structures, not one-off tasks. That is the difference between doing a job and building something."
+      },
+      {
+        "number": "06",
+        "title": "I Adapt Before Anyone Asks Me To",
+        "desc": "I identify what the team needs before it becomes a problem. I pick up new tools without being trained on them. I find the gap between where things are and where they could be, and I fill it. That kind of initiative is not something most employers expect from someone at my level."
+      }
+    ]
+  },
+  "exposure": {
+    "sectionLabel": "04 - Professional Experience",
+    "sectionTitle": "Built Through Real Work",
+    "sectionSubtitle": "Nearly two years in HR management and more than one year in digital marketing. Not internships. Not theory. Actual professional responsibility with real outcomes.",
+    "narrativeP1": "In my HR role, I owned the full recruitment cycle. I wrote job descriptions, sourced candidates, conducted screenings, coordinated interviews, and managed the offer process. I then designed and delivered onboarding programs that cut new-hire confusion and improved early retention. Every new employee who walked in on their first day went through a process I built.",
+    "narrativeP2": "Performance management was another significant part of my work. I set up <strong>appraisal frameworks, goal-setting processes, and feedback structures</strong> that gave managers better tools and gave employees a clearer sense of where they stood. When employee relations issues came up, I handled them with discretion, fairness, and speed.",
+    "narrativeP3": "On the digital marketing side, I ran social media accounts, planned content calendars, designed all visual assets, and reported on performance every month. I also brought AI tools into the team's workflow, which improved output quality and reduced the time spent on repetitive content tasks significantly.",
+    "highlights": [
+      {
+        "title": "Full Recruitment Lifecycle",
+        "desc": "From writing the job post to handing over the offer letter. End-to-end ownership of candidate sourcing, screening, interviewing, and hiring for multiple roles."
+      },
+      {
+        "title": "Onboarding and Training Programs",
+        "desc": "Designed and delivered structured onboarding experiences that improved new-hire integration and reduced the time-to-productivity for new team members."
+      },
+      {
+        "title": "Social Media Growth",
+        "desc": "Grew organic reach and audience engagement across Instagram, LinkedIn, and Facebook through consistent content strategy, data-informed posting, and high-quality visual design."
+      },
+      {
+        "title": "HR Analytics and Reporting",
+        "desc": "Built and maintained reporting dashboards using Excel to track key HR metrics including headcount, attrition, engagement scores, and recruitment pipeline health."
+      }
+    ]
+  },
+  "capabilities": {
+    "sectionLabel": "05 - Professional Capabilities",
+    "sectionTitle": "What I Bring With Me",
+    "sectionSubtitle": "These are the skills I have tested in real roles, refined over time, and can bring to any team from day one.",
+    "items": [
+      {
+        "title": "HR and Recruitment",
+        "progress": "95%",
+        "desc": "End-to-end people operations, from sourcing to retention"
+      },
+      {
+        "title": "AI Integration and Tools",
+        "progress": "90%",
+        "desc": "Applying AI to automate, scale, and improve workflow quality"
+      },
+      {
+        "title": "Microsoft Excel",
+        "progress": "85%",
+        "desc": "Advanced reporting, dashboards, and data analysis"
+      },
+      {
+        "title": "Social Media Marketing",
+        "progress": "85%",
+        "desc": "Strategy, content, analytics, and community growth"
+      },
+      {
+        "title": "Digital Marketing",
+        "progress": "85%",
+        "desc": "Campaigns, brand storytelling, and performance tracking"
+      },
+      {
+        "title": "Canva Design",
+        "progress": "80%",
+        "desc": "Expert-level visual content creation for any platform"
+      },
+      {
+        "title": "Communication",
+        "progress": "92%",
+        "desc": "Clear, confident, and tuned to the audience in every context"
+      },
+      {
+        "title": "Creative Problem Solving",
+        "progress": "88%",
+        "desc": "Finding practical solutions that work the first time"
+      },
+      {
+        "title": "Process Optimisation",
+        "progress": "85%",
+        "desc": "Building systems that scale and survive beyond their creator"
+      }
+    ]
+  },
+  "vision": {
+    "sectionLabel": "06 - Career Vision",
+    "sectionTitle": "Where I Am Heading",
+    "statement": "I want to be in a role where <em>human resources and brand building are not separate departments</em>, but a single, integrated strategy. Where the way you treat employees and the way you present your brand to the world are the same story told consistently.",
+    "pillars": [
+      {
+        "icon": "Now",
+        "title": "Right Now",
+        "desc": "Contribute meaningfully in an HR or marketing role where I can apply my dual expertise from day one. Help a team hire better, onboard smarter, create more compelling content, and use AI tools to multiply their output."
+      },
+      {
+        "icon": "Next",
+        "title": "Next Chapter",
+        "desc": "Grow into an HR Business Partner or Employer Branding Lead role where I can shape how an organisation attracts, develops, and retains talent. Build programs that outlast my tenure and create culture by design, not by accident."
+      },
+      {
+        "icon": "Future",
+        "title": "Long-Term",
+        "desc": "Lead people and culture at a level where strategy and creativity intersect. Build organisations where employees are proud to work, where the external brand reflects the internal reality, and where people development is taken as seriously as business development."
+      }
+    ],
+    "closingQuote": "\"I am not looking for just a job. I am looking for an organisation that takes its people seriously, and wants someone who will take that mission seriously with them.\""
+  },
+  "introduction": {
+    "sectionLabel": "07 - A Personal Introduction",
+    "sectionTitle": "In My Own Words",
+    "paragraphs": [
+      "My name is Deepika Goyal. I am from Sangrur in Punjab, and I hold a BBA from Guru Nanak College, Budhlada. For the past two years I have been building a career that does not fit neatly into a single box, and I have come to understand that this is one of my greatest strengths.",
+      "In my HR role, I managed the complete employee lifecycle. I hired people, designed their first weeks with the company, ran their performance reviews, handled their concerns, and worked to keep them engaged and motivated over the long term. I learned that HR done well is invisible. People do not notice a smooth onboarding or a fair appraisal process. They just feel good about where they work. That is the goal I worked toward every day.",
+      "Alongside that, I built a real competency in digital marketing and social media. I ran content calendars, designed visual assets, analysed performance data, and used AI tools to produce better content faster. What I found was that the skills I used in HR and the skills I used in marketing were more similar than most people realise. Both are about understanding people. Both are about telling the right story to the right audience. Both require creativity, consistency, and a willingness to measure what you are doing.",
+      "I speak English, Hindi, and conversational Punjabi. I am advanced in Excel, expert in Canva, and actively integrating AI tools into my professional practice. I am organised, I follow through on what I commit to, and I bring genuine energy to the work I do. I am ready for a role that challenges me, and I am confident I will exceed what is expected."
+    ],
+    "signature": "Deepika Goyal"
+  },
+  "contact": {
+    "sectionLabel": "08 - Let's Connect",
+    "sectionTitle": "Get in Touch",
+    "cardName": "Deepika Goyal",
+    "cardTagline": "People . Strategy . Impact",
+    "info": [
+      {
+        "icon": "P",
+        "label": "Phone",
+        "text": "+91 81683 20066"
+      },
+      {
+        "icon": "E",
+        "label": "Email",
+        "text": "workwithdeepika07@gmail.com"
+      },
+      {
+        "icon": "L",
+        "label": "Location",
+        "text": "Sangrur, Punjab, India"
+      },
+      {
+        "icon": "S",
+        "label": "Languages",
+        "text": "English, Hindi and Punjabi"
+      }
+    ],
+    "footer": "\"I would love to connect and show you what I can bring to your team. Let us talk.\"",
+    "references": "References available upon request",
+    "social": [
+      {
+        "platform": "instagram",
+        "label": "Instagram",
+        "handle": "@workwithdeepika",
+        "url": "https://instagram.com/workwithdeepika"
+      },
+      {
+        "platform": "x",
+        "label": "LinkedIn",
+        "handle": "Deepika Goyal",
+        "url": "https://linkedin.com/in/deepikagoyal"
+      },
+      {
+        "platform": "facebook",
+        "label": "Facebook",
+        "handle": "Deepika Goyal",
+        "url": "https://facebook.com/deepikagoyal"
+      }
+    ]
+  }
+}

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Astha Patel - Resume</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+    :root {
+      --primary:   #1a1a2e;
+      --rose:      #C2727E;
+      --rose-dim:  rgba(194,114,126,0.18);
+      --rose-pale: #e8ccd1;
+      --dark:      #0e0c14;
+      --dark-2:    #1a1724;
+      --text-d:    #e4e2ed;
+      --text-d2:   rgba(228,226,237,.65);
+      --white:     #ffffff;
+      --gray:      #555;
+      --gray-lt:   #f4f4f6;
+      --line:      #e2e2e8;
+      --sb-w:      72mm;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #1e1e2e;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 48px 24px;
+      gap: 48px;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      background: var(--white);
+      box-shadow: 0 20px 60px rgba(0,0,0,.7);
+      display: flex;
+      flex-direction: row;
+      position: relative;
+    }
+
+    @page { size: A4; margin: 0; }
+    @media print {
+      body { background: white; padding: 0; gap: 0; }
+      .page {
+        box-shadow: none;
+        break-inside: avoid;
+        break-after: page;
+        height: 297mm;
+        overflow: hidden;
+      }
+      .page:last-child { break-after: auto; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+
+    /* LEFT SIDEBAR */
+    .sb {
+      width: var(--sb-w);
+      flex-shrink: 0;
+      background: var(--dark);
+      color: var(--text-d);
+      padding: 0 0 16px 0;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .sb::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(to bottom, var(--rose), transparent 80%);
+    }
+    .sb-arch {
+      background: var(--dark-2);
+      padding: 22px 20px 14px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .sb-arch::after {
+      content: '';
+      position: absolute;
+      bottom: -16px; left: 0; right: 0;
+      height: 32px;
+      background: var(--dark-2);
+      clip-path: ellipse(55% 100% at 50% 0%);
+    }
+    .portrait-wrap {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid rgba(194,114,126,.4);
+      box-shadow: 0 8px 30px rgba(0,0,0,.5);
+      background: var(--dark-2);
+    }
+    .portrait-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .sb-body { padding: 0 16px; display: flex; flex-direction: column; gap: 16px; }
+    .sb-section-title {
+      font-family: 'Cinzel', serif;
+      font-size: .62rem;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--rose);
+      padding-bottom: 5px;
+      margin-bottom: 8px;
+      border-bottom: 1px solid rgba(194,114,126,.25);
+    }
+    .contact-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 8px; font-size: .7rem; font-weight: 500; line-height: 1.4; color: var(--text-d2); }
+    .c-icon { width: 12px; height: 12px; fill: var(--rose); flex-shrink: 0; margin-top: 1px; }
+    .contact-item a { color: var(--rose-pale); text-decoration: none; word-break: break-all; }
+    
+    .skill-group { margin-bottom: 8px; }
+    .skill-group-label { font-size: .6rem; font-weight: 600; color: var(--text-d2); text-transform: uppercase; letter-spacing: .12em; margin-bottom: 5px; }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 4px; }
+    .skill-pills span {
+      font-size: .65rem;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      color: var(--text-d);
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+
+    /* MAIN */
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      position: relative;
+    }
+    .wm {
+      position: absolute;
+      bottom: -60px; right: -40px;
+      font-family: 'Cinzel', serif;
+      font-size: 24rem;
+      font-weight: 700;
+      color: rgba(194,114,126,.04);
+      line-height: 1;
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+    }
+    .main-header {
+      background: var(--primary);
+      padding: 20px 24px 16px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      border-bottom: 3px solid var(--rose);
+    }
+    .main-header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 2px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .main-header h1 span { color: var(--rose); }
+    .main-header .role-tag {
+      font-size: .75rem;
+      font-weight: 500;
+      letter-spacing: .35em;
+      text-transform: uppercase;
+      color: var(--rose-pale);
+      margin-bottom: 10px;
+    }
+    .main-header .summary-blurb {
+      font-family: 'Montserrat', sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: .82rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,.8);
+      border-left: 2px solid var(--rose);
+      padding-left: 12px;
+    }
+    
+    .main-body {
+      flex: 1;
+      padding: 16px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .sec-title {
+      font-family: 'Cinzel', serif;
+      font-size: .95rem;
+      font-weight: 700;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      padding-bottom: 4px;
+      border-bottom: 2px solid var(--line);
+      margin-bottom: 10px;
+      position: relative;
+    }
+    .sec-title::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -2px;
+      width: 36px; height: 2px;
+      background: var(--rose);
+    }
+    .summary-text { font-size: .82rem; font-weight: 500; line-height: 1.6; color: #333; text-align: justify; }
+    
+    .exp-block { margin-bottom: 12px; }
+    .exp-block:last-child { margin-bottom: 0; }
+    .exp-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; }
+    .exp-role { font-size: .92rem; font-weight: 700; color: var(--primary); }
+    .exp-date { font-size: .72rem; font-weight: 600; color: var(--rose); letter-spacing: .08em; text-transform: uppercase; white-space: nowrap; }
+    .exp-org { font-family: 'Montserrat', sans-serif; font-style: normal; font-weight: 600; font-size: .72rem; color: var(--rose); text-transform: uppercase; letter-spacing: .1em; margin-bottom: 8px; }
+    .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .exp-bullets li { font-size: .8rem; line-height: 1.55; color: #444; padding-left: 14px; position: relative; }
+    .exp-bullets li::before { content: '\25B8'; position: absolute; left: 0; top: 0; color: var(--rose); font-size: .7rem; }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+    .tag-row span {
+      font-size: .62rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em;
+      background: var(--gray-lt); color: var(--gray);
+      border: 1px solid var(--line); padding: 2px 8px; border-radius: 3px;
+    }
+
+    .diff-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .diff-item { position: relative; padding-left: 14px; font-size: .78rem; font-weight: 500; line-height: 1.55; color: #333; }
+    .diff-item::before { content: '\2736'; position: absolute; left: 0; top: 2px; font-size: .5rem; color: var(--rose); }
+    .diff-item strong { color: var(--primary); font-weight: 700; display: block; font-size: .8rem; margin-bottom: 2px; }
+
+    .cap-list { display: flex; flex-direction: column; gap: 7px; margin-top: 4px; }
+    .cap-title { font-size: .62rem; display: flex; justify-content: space-between; color: var(--text-d2); margin-bottom: 3px; font-weight: 500; }
+    .cap-title span:last-child { color: var(--rose); font-weight: 600; }
+    .cap-bg { width: 100%; height: 3px; background: rgba(255,255,255,.08); border-radius: 2px; }
+    .cap-fill { height: 100%; background: var(--rose); border-radius: 2px; }
+    
+    .values-row { display: flex; gap: 14px; margin-top: 6px; }
+    .val-item { flex: 1; }
+    .val-item h4 { font-size: .82rem; font-weight: 700; color: var(--primary); margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+    .val-item h4::before { content: '\2736'; color: var(--rose); font-size: .5rem; }
+    .val-item p { font-size: .75rem; font-weight: 500; line-height: 1.55; color: #444; }
+
+    .ref-footer {
+      text-align: center;
+      font-size: .75rem;
+      color: var(--rose);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+  </style>
+</head>
+<body>
+
+<div class="page" id="page1">
+  <div class="sb">
+    <div class="sb-arch">
+      <div class="portrait-wrap">
+        <img src="assets/portrait.png" alt="Astha Patel">
+      </div>
+    </div>
+    <div class="sb-body">
+
+      <div class="sb-section">
+        <div class="sb-section-title">Contact</div>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <svg class="c-icon" viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span>astha.patel.work@gmail.com</span>
+          </li>
+          <li class="contact-item">
+            <svg class="c-icon" viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>
+            <span>+91 73900 44391</span>
+          </li>
+          <li class="contact-item">
+            <svg class="c-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+            <span>Khalilabad, UP, India</span>
+          </li>
+          <li class="contact-item">
+            <svg class="c-icon" viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm-1 15v-4H7l5-8v4h4l-5 8z"/></svg>
+            <a href="https://portfolio-asthapatel.vercel.app/" target="_blank">portfolio-asthapatel.vercel.app</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-section-title">Core Skills</div>
+        <div class="skill-group">
+          <div class="skill-group-label">Client-Facing & Comm</div>
+          <div class="skill-pills">
+            <span>Relationship Building</span>
+            <span>Conflict Resolution</span>
+            <span>Active Listening</span>
+            <span>Bilingual EN/HI</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Operational</div>
+          <div class="skill-pills">
+            <span>Adaptability</span>
+            <span>Composure Under Pressure</span>
+            <span>Cross-Team Coordination</span>
+            <span>Follow-Through</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-section-title">Capabilities</div>
+        <div class="cap-list">
+          <div>
+            <div class="cap-title"><span>Interpersonal Comm.</span><span>95%</span></div>
+            <div class="cap-bg"><div class="cap-fill" style="width:95%"></div></div>
+          </div>
+          <div>
+            <div class="cap-title"><span>Customer Experience</span><span>94%</span></div>
+            <div class="cap-bg"><div class="cap-fill" style="width:94%"></div></div>
+          </div>
+          <div>
+            <div class="cap-title"><span>Adaptability</span><span>93%</span></div>
+            <div class="cap-bg"><div class="cap-fill" style="width:93%"></div></div>
+          </div>
+          <div>
+            <div class="cap-title"><span>Emotional Intelligence</span><span>92%</span></div>
+            <div class="cap-bg"><div class="cap-fill" style="width:92%"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sb-section">
+        <div class="sb-section-title">Background</div>
+        <div style="font-size:.75rem;font-weight:600;color:var(--text-d);margin-bottom:4px;">Education</div>
+        <div style="font-size:.7rem;font-weight:400;color:var(--text-d2);line-height:1.5;">
+          Higher Secondary<br>
+          <span style="color:var(--rose-pale);font-size:.68rem;">Shree Ram Public School</span>
+        </div>
+        <div style="font-size:.75rem;font-weight:600;color:var(--text-d);margin-top:10px;margin-bottom:4px;">Real Estate Exposure</div>
+        <div style="font-size:.7rem;font-weight:400;color:var(--text-d2);line-height:1.5;">
+          Raised in a family real estate enterprise, gaining early insight into client trust, negotiation, and professional communication.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="wm">A</div>
+    <div class="main-header">
+      <h1>Astha <span>Patel</span></h1>
+      <div class="role-tag">Client Relations &amp; Experience Professional</div>
+      <div class="summary-blurb">
+        A people-first professional who turns everyday interactions into lasting business relationships, with warmth, composure, and a quiet confidence that speaks for itself.
+      </div>
+    </div>
+    <div class="main-body">
+
+      <div>
+        <div class="sec-title">Professional Summary</div>
+        <p class="summary-text">
+          Motivated and emotionally intelligent professional with hands-on experience in client-facing environments and high-stakes business interactions. Proven ability to adapt to new settings rapidly, de-escalate conflict with poise, and build lasting trust through consistent, genuine human connection.
+        </p>
+      </div>
+
+      <div>
+        <div class="sec-title">Professional Experience</div>
+
+        <div class="exp-block">
+          <div class="exp-head">
+            <div class="exp-role">Front Office &amp; Client Relations Executive</div>
+            <div class="exp-date">2023 - Present</div>
+          </div>
+          <div class="exp-org">Authorised Hero MotoCorp Dealership</div>
+          <ul class="exp-bullets">
+            <li>Served as the primary point of contact for all walk-in customers, managing first impressions and ensuring a consistently professional, welcoming environment.</li>
+            <li>Resolved customer complaints and service escalations with calm authority, contributing directly to higher client satisfaction and repeat visits.</li>
+            <li>Coordinated cross-functionally with sales, service, and logistics teams to streamline daily operations and reduce customer wait-time friction.</li>
+          </ul>
+        </div>
+
+        <div class="exp-block">
+          <div class="exp-head">
+            <div class="exp-role">Business Observer &amp; Client Relations Support</div>
+            <div class="exp-date">2019 - 2023</div>
+          </div>
+          <div class="exp-org">Family Real Estate Enterprise, Khalilabad</div>
+          <ul class="exp-bullets">
+            <li>Participated in client consultations and property negotiations, developing an intuitive understanding of buyer psychology and trust-building under financial pressure.</li>
+            <li>Supported relationship management by tracking client follow-ups, maintaining communication logs, and assisting in correspondence preparation.</li>
+          </ul>
+        </div>
+      </div>
+      
+      <div>
+        <div class="sec-title">Key Strengths</div>
+        <ul class="diff-list">
+          <li class="diff-item"><strong>Rapid Adaptability</strong>Settles into new environments fast, asks the right questions and contributes before others have finished onboarding.</li>
+          <li class="diff-item"><strong>Unshakable Composure</strong>Remains calm and solution-oriented during difficult interactions, bringing stability to tense situations.</li>
+          <li class="diff-item"><strong>Exceptional Brand Presence</strong>Consistently polished, self-aware, and composed, instils immediate confidence in anyone she represents.</li>
+        </ul>
+      </div>
+
+      <div>
+        <div class="sec-title">Core Professional Values</div>
+        <div class="values-row">
+          <div class="val-item">
+            <h4>Integrity</h4>
+            <p>Honesty is a default, not a tactic. I tell people what they need to hear with tact and care, building an unshakeable foundation of trust over time.</p>
+          </div>
+          <div class="val-item">
+            <h4>Excellence</h4>
+            <p>Self-imposed, not externally mandated. I would not feel right delivering anything less than my absolute best, regardless of whether anyone is watching.</p>
+          </div>
+          <div class="val-item">
+            <h4>Respect</h4>
+            <p>Senior executive or first-time visitor, every person receives the same level of care, attention, and genuine professional warmth.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="ref-footer">
+        &middot;&ensp;References Available Upon Request&ensp;&middot;
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

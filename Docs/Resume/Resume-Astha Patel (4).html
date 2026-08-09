@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Astha Patel - Professional Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+
+    /* ============================================================
+       COLOR TOKENS — edit here to change any color on the resume
+       ============================================================ */
+    :root {
+      /* Page */
+      --color-page-bg:              #ffffff;  /* white page background */
+
+      /* Sidebar */
+      --color-sidebar-bg:           transparent; /* sidebar background */
+      --color-sidebar-border:       #e5e7eb;  /* line between sidebar and main */
+
+      /* Sidebar text */
+      --color-sidebar-label:        #374151;  /* section labels (CONTACT, SKILLS…) */
+      --color-sidebar-text:         #4b5563;  /* contact items, skill items */
+      --color-sidebar-text-strong:  #111827;  /* bold items like degree name */
+      --color-sidebar-link:         #4b5563;  /* hyperlinks in sidebar */
+      --color-sidebar-link-hover:   #111827;  /* hyperlinks on hover */
+
+      /* Portrait */
+      --color-portrait-border:      #e5e7eb;  /* border around photo */
+
+      /* Header (name + role) */
+      --color-name:                 #111827;  /* full name */
+      --color-role:                 #4b5563;  /* job title under name */
+
+      /* Main body text */
+      --color-body-text:            #4b5563;  /* paragraphs, summary, bullets */
+      --color-body-text-strong:     #111827;  /* bold labels inside bullet items */
+
+      /* Section titles (right column) */
+      --color-section-title:        #111827;  /* section heading text */
+      --color-section-title-border: #e5e7eb;  /* underline below section heading */
+
+      /* Experience */
+      --color-job-title:            #111827;  /* position title */
+      --color-job-date:             #4b5563;  /* date range */
+      --color-job-company:          #4b5563;  /* company name */
+
+      /* Dividers */
+      --color-divider:              #e5e7eb;  /* generic horizontal rules */
+    }
+
+    /* ============================================================
+       RESET
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ============================================================
+       PAGE SHELL
+       ============================================================ */
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: none;
+      color: var(--color-body-text);
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      background: var(--color-page-bg);
+      padding: 40px 45px;
+      box-shadow: none;
+      display: flex;
+      gap: 30px;
+    }
+
+    @page { size: A4; margin: 0; }
+    @media print {
+      body { background: none; padding: 0; }
+      .page { padding: 15mm; height: 297mm; overflow: hidden; }
+    }
+
+    /* ============================================================
+       LEFT COLUMN (SIDEBAR)
+       ============================================================ */
+    .left-col {
+      flex: 0 0 200px;
+      display: flex;
+      flex-direction: column;
+      background: var(--color-sidebar-bg);
+      border-right: 1px solid var(--color-sidebar-border);
+      padding-right: 24px;
+    }
+
+    /* Portrait photo */
+    .portrait {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 24px;
+      border: 1px solid var(--color-portrait-border);
+    }
+
+    .portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    /* Sidebar section headings */
+    .section-title-left {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-sidebar-label);
+      border-bottom: 1px solid var(--color-divider);
+      padding-bottom: 4px;
+      margin-bottom: 10px;
+      margin-top: 22px;
+    }
+
+    /* Contact items */
+    .contact-item {
+      font-size: 0.8rem;
+      margin-bottom: 7px;
+      color: var(--color-sidebar-text);
+      white-space: nowrap;
+    }
+
+    .contact-item a {
+      color: var(--color-sidebar-link);
+      text-decoration: none;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+      color: var(--color-sidebar-link-hover);
+    }
+
+    /* Skills list */
+    .skills-list {
+      list-style: none;
+    }
+
+    .skills-list li {
+      font-size: 0.82rem;
+      margin-bottom: 7px;
+      color: var(--color-sidebar-text);
+    }
+
+    /* Education text */
+    .edu-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--color-sidebar-text-strong);
+      margin-bottom: 2px;
+    }
+
+    .edu-school {
+      font-size: 0.82rem;
+      color: var(--color-sidebar-text);
+    }
+
+    /* ============================================================
+       RIGHT COLUMN (MAIN CONTENT)
+       ============================================================ */
+    .right-col {
+      flex: 1;
+      padding-top: 6px;
+    }
+
+    /* Name + role */
+    .header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 6px;
+      color: var(--color-name);
+      line-height: 1.1;
+    }
+
+    .header .role {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-role);
+      margin-bottom: 18px;
+    }
+
+    /* Summary paragraph */
+    .summary p {
+      font-size: 0.9rem;
+      color: var(--color-body-text);
+      line-height: 1.7;
+      margin-bottom: 4px;
+    }
+
+    /* Section headings (right column) */
+    .section-title-right {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid var(--color-section-title-border);
+      padding-bottom: 4px;
+      margin-bottom: 12px;
+      color: var(--color-section-title);
+      margin-top: 20px;
+    }
+
+    /* Job block */
+    .job {
+      margin-bottom: 14px;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 2px;
+    }
+
+    .job-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--color-job-title);
+    }
+
+    .job-date {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--color-job-date);
+    }
+
+    .job-company {
+      font-size: 0.85rem;
+      color: var(--color-job-company);
+      margin-bottom: 10px;
+    }
+
+    /* Experience bullets */
+    .job-bullets {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .job-bullets li {
+      font-size: 0.88rem;
+      color: var(--color-body-text);
+      margin-bottom: 7px;
+      line-height: 1.6;
+    }
+
+    /* Key strengths list */
+    .strengths-list {
+      list-style: none;
+    }
+
+    .strengths-list li {
+      font-size: 0.88rem;
+      color: var(--color-body-text);
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    .strengths-list strong {
+      color: var(--color-body-text-strong);
+      font-weight: 600;
+      margin-right: 4px;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- ── SIDEBAR ── -->
+  <div class="left-col">
+
+    <div class="portrait">
+      <img src="../../assets/portrait.png" alt="Astha Patel">
+    </div>
+
+    <div class="section-title-left" style="margin-top:0;">Contact</div>
+    <div class="contact-item">astha.patel.work@gmail.com</div>
+    <div class="contact-item">+91 73900 44391</div>
+    <div class="contact-item">Khalilabad, UP, India</div>
+    <div class="contact-item"><a href="https://portfolio-asthapatel.vercel.app/" target="_blank">Portfolio Website</a></div>
+
+    <div class="section-title-left">Skills</div>
+    <ul class="skills-list">
+      <li>Customer Relationship Management</li>
+      <li>Conflict Resolution</li>
+      <li>Active Listening</li>
+      <li>Team Coordination</li>
+      <li>Bilingual (EN / HI)</li>
+      <li>Adaptability</li>
+      <li>Professional Communication</li>
+    </ul>
+
+    <div class="section-title-left">Education</div>
+    <div class="edu-name">Higher Secondary</div>
+    <div class="edu-school">Shree Ram Public School</div>
+
+  </div>
+
+  <!-- ── MAIN ── -->
+  <div class="right-col">
+
+    <div class="header">
+      <h1>Astha Patel</h1>
+      <div class="role">Front Office & Client Experience Professional</div>
+    </div>
+
+    <div class="summary">
+      <p>
+        Dedicated and personable professional with demonstrated experience in front-office operations and client-facing roles. Known for maintaining poise under pressure, resolving issues with empathy, and creating positive first impressions that reflect well on the organisation. Eager to contribute to a team where service quality and professionalism are valued.
+      </p>
+    </div>
+
+    <div class="section-title-right" style="margin-top:16px;">Professional Experience</div>
+
+    <div class="job">
+      <div class="job-header">
+        <div class="job-title">Front Office & Client Relations Executive</div>
+        <div class="job-date">2023 - Present</div>
+      </div>
+      <div class="job-company">Authorised Hero MotoCorp Dealership, Khalilabad</div>
+      <ul class="job-bullets">
+        <li>Managed all walk-in customer interactions as the primary point of contact, ensuring a welcoming, professional experience from entry to resolution.</li>
+        <li>Handled customer complaints and service escalations calmly and effectively, improving satisfaction scores and encouraging repeat visits.</li>
+        <li>Coordinated with sales, service, and back-office teams on a daily basis to ensure smooth operations and minimal wait-time for customers.</li>
+        <li>Maintained accurate records of customer queries, follow-ups, and service status, improving overall communication within the dealership.</li>
+      </ul>
+    </div>
+
+    <div class="section-title-right">Key Strengths</div>
+    <ul class="strengths-list">
+      <li><strong>People-First Mindset:</strong> Naturally empathetic and attentive. Builds genuine rapport with customers and colleagues alike from the very first interaction.</li>
+      <li><strong>Composure Under Pressure:</strong> Stays calm and solution-oriented during high-stress or difficult situations, creating a stable and reassuring environment.</li>
+      <li><strong>Strong Professional Presentation:</strong> Consistently punctual, well-presented, and articulate. Represents any organisation with quiet confidence and maturity.</li>
+    </ul>
+
+  </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,529 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deepika Goyal - Personal Brand Portfolio</title>
+  <meta name="description" content="Personal brand portfolio of Deepika Goyal, an HR Executive and Digital Marketing professional with expertise in people management, creative content, and AI integration.">
+  <meta name="author" content="Deepika Goyal">
+  <meta name="theme-color" content="#b8860b">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Deepika Goyal - Personal Brand Portfolio">
+  <meta property="og:description" content="A dual-domain professional bridging HR and digital marketing to build organisations that grow from the inside out.">
+  <meta property="og:image" content="assets/portrait.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/feature-flags.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#10022;</text></svg>">
+</head>
+<body>
+  <script>
+    (function() {
+      var theme = sessionStorage.getItem('preview-theme');
+      var flagsStr = sessionStorage.getItem('preview-flags');
+      var showGift = false;
+      if (flagsStr) {
+        try {
+          var flags = JSON.parse(flagsStr);
+          if (flags['hero-variant'] && !theme) theme = 'theme-' + flags['hero-variant'];
+          if (flags['gift-wrap'] !== undefined) showGift = flags['gift-wrap'];
+        } catch(e) {}
+      }
+      // Only set a theme if we have an admin preview session — otherwise
+      // content-loader.js will set the correct theme from feature-flags.json
+      if (theme) {
+        document.body.classList.add(theme);
+      }
+      window._initialShowGift = showGift;
+    })();
+  </script>
+  <!-- ====== GIFT WRAP OVERLAY ====== -->
+  <div class="gift-wrap-overlay" id="giftWrap">
+    <script>
+      if (!window._initialShowGift) document.getElementById('giftWrap').style.display = 'none';
+    </script>
+    <div class="gift-wrap-left"></div>
+    <div class="gift-wrap-right"></div>
+    <div class="gift-ribbon-horizontal"></div>
+    <div class="gift-ribbon-vertical"></div>
+    <div class="gift-bow">
+      <div class="gift-bow-left"></div>
+      <div class="gift-bow-right"></div>
+      <div class="gift-bow-center"></div>
+    </div>
+    <div class="gift-tag">
+      <span>A Gift For</span>
+      <strong id="giftTagFor">Deepika</strong>
+      <div class="gift-tap-hint">Tap to open</div>
+    </div>
+  </div>
+
+  <!-- ====== NAVIGATION ====== -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-brand">Deepika Goyal</div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#brand">Brand</a></li>
+      <li><a href="#strengths">Strengths</a></li>
+      <li><a href="#differentiators">What Sets Me Apart</a></li>
+      <li><a href="#exposure">Business Exposure</a></li>
+      <li><a href="#capabilities">Capabilities</a></li>
+      <li><a href="#vision">Vision</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-menu-btn" id="menuBtn" aria-label="Toggle navigation menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#brand" onclick="closeMobileNav()">Brand</a>
+    <a href="#strengths" onclick="closeMobileNav()">Strengths</a>
+    <a href="#differentiators" onclick="closeMobileNav()">What Sets Me Apart</a>
+    <a href="#exposure" onclick="closeMobileNav()">Business Exposure</a>
+    <a href="#capabilities" onclick="closeMobileNav()">Capabilities</a>
+    <a href="#vision" onclick="closeMobileNav()">Vision</a>
+    <a href="#contact" onclick="closeMobileNav()">Contact</a>
+  </div>
+
+  <!-- ====== 01 - COVER / HERO ====== -->
+  <section class="hero" id="hero">
+    <div class="hero-bg-element hero-bg-1"></div>
+    <div class="hero-bg-element hero-bg-2"></div>
+    <div class="hero-bg-element hero-bg-3"></div>
+
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-name">
+          Deepika
+          <span>Goyal</span>
+        </h1>
+        <div class="hero-tagline">
+          <span>People</span>
+          <span class="dot"></span>
+          <span>Strategy</span>
+          <span class="dot"></span>
+          <span>Impact</span>
+        </div>
+        <p class="hero-statement">
+          A dual-domain professional who brings people-first HR thinking and creative digital marketing together to build organisations that grow from the inside out.
+        </p>
+        <div class="hero-scroll" onclick="scrollToSection('brand')">
+          <div class="scroll-line"></div>
+          <span>Discover More</span>
+        </div>
+      </div>
+
+      <div class="hero-portrait">
+        <div class="portrait-frame">
+          <img src="assets/portrait.jpg" alt="Deepika Goyal" class="portrait-img" fetchpriority="high">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 02 - PERSONAL BRAND ====== -->
+  <section class="section brand-section" id="brand">
+    <div class="section-inner">
+      <div class="section-label reveal">01 - Personal Brand</div>
+      <h2 class="section-title reveal reveal-delay-1">Who I Am</h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        I am Deepika. An HR professional and digital marketer based in Sangrur, Punjab, with a genuine belief that the best organisations are built on two things: the right people and the right story.
+      </p>
+
+      <div class="brand-grid">
+        <div class="brand-quote reveal reveal-delay-2">
+          I entered the professional world with a BBA and a clear sense of purpose. Over nearly two years in HR and more than a year in digital marketing, I have learned that strategy without people is just theory, and creativity without data is just noise. I sit at the intersection of both, and that is where I do my best work.
+        </div>
+
+        <div class="brand-values">
+          <div class="value-card reveal reveal-delay-1">
+            <div class="value-icon">I</div>
+            <h3>Integrity</h3>
+            <p>Honesty is not a strategy for me. It's a default. I would rather tell someone what they need to hear than what they want to hear, and that consistency is something people learn to rely on.</p>
+          </div>
+          <div class="value-card reveal reveal-delay-2">
+            <div class="value-icon">E</div>
+            <h3>Excellence</h3>
+            <p>I hold myself to a higher standard than most people my age, not because someone asked me to, but because I would not feel right doing less than my best.</p>
+          </div>
+          <div class="value-card reveal reveal-delay-3">
+            <div class="value-icon">G</div>
+            <h3>Growth</h3>
+            <p>I chose to step into the professional world early. That was not a setback. It was a decision to learn by doing, and I have not stopped learning since.</p>
+          </div>
+          <div class="value-card reveal reveal-delay-4">
+            <div class="value-icon">R</div>
+            <h3>Respect</h3>
+            <p>Whether it is a senior executive or someone walking in for the first time, I treat every person with the same care and attention. Everyone deserves to feel heard.</p>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top: 50px;" class="reveal">
+        <div class="divider"></div>
+      </div>
+
+      <div style="margin-top: 40px; max-width: 700px;" class="reveal reveal-delay-1" data-block="philosophy">
+        <h3 style="font-family: var(--font-heading); font-size: 1.15rem; font-weight: 500; margin-bottom: 16px; color: var(--charcoal);">Professional Philosophy</h3>
+        <p style="font-family: var(--font-display); font-size: 1.05rem; line-height: 1.9; color: var(--graphite); font-style: italic;">
+          The way I see it, every organisation's reputation is built one conversation at a time. Every phone call, every handshake, every moment when a customer decides whether they trust you. Those small interactions are where real brand loyalty is won or lost. I take those moments seriously because <strong style="font-weight: 600; color: var(--charcoal);">I am not just representing myself. I am representing the people who trusted me to be there.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 03 - CORE STRENGTHS ====== -->
+  <section class="section experience-section" id="strengths">
+    <div class="section-inner">
+      <div class="section-label reveal">02 - Core Strengths</div>
+      <h2 class="section-title reveal reveal-delay-1">What I Am Built For</h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        These are not skills I picked up from a textbook. They come from real experience. From greeting hundreds of customers, from sitting in on business meetings since I was a teenager, and from learning early that how you make someone feel matters more than what you say.
+      </p>
+
+      <div class="exp-timeline">
+        <div class="exp-item reveal">
+          <div class="exp-period">People Skills</div>
+          <div class="exp-role">Making People Feel Welcome</div>
+          <div class="exp-company">The Foundation of Everything I Do</div>
+          <p class="exp-description">
+            I have spent years being the first person someone sees when they walk through a door. I learned quickly that a genuine smile and real attention can completely change someone's experience. I do not follow a script. I read the room, adjust my approach, and make sure every person feels like they matter. Because they do.
+          </p>
+          <div class="exp-skills">
+            <span class="exp-skill-tag">Customer Engagement</span>
+            <span class="exp-skill-tag">First Impressions</span>
+            <span class="exp-skill-tag">Rapport Building</span>
+            <span class="exp-skill-tag">Active Listening</span>
+            <span class="exp-skill-tag">Professional Warmth</span>
+          </div>
+        </div>
+
+        <div class="exp-item reveal reveal-delay-1">
+          <div class="exp-period">Communication</div>
+          <div class="exp-role">Clear, Calm, and Confident</div>
+          <div class="exp-company">In Any Situation, With Any Audience</div>
+          <p class="exp-description">
+            I communicate fluently in both Hindi and English, and I know how to adjust my tone depending on who I am speaking with. A frustrated customer needs patience and empathy. A business client needs clarity and confidence. A colleague needs directness and support. I switch between these naturally. It is not something I have to think about.
+          </p>
+          <div class="exp-skills">
+            <span class="exp-skill-tag">Bilingual Communication</span>
+            <span class="exp-skill-tag">Conflict Resolution</span>
+            <span class="exp-skill-tag">Persuasive Communication</span>
+            <span class="exp-skill-tag">Professional Correspondence</span>
+            <span class="exp-skill-tag">Stakeholder Communication</span>
+          </div>
+        </div>
+
+        <div class="exp-item reveal reveal-delay-2">
+          <div class="exp-period">Emotional Intelligence</div>
+          <div class="exp-role">Reading Between the Lines</div>
+          <div class="exp-company">Understanding What People Actually Need</div>
+          <p class="exp-description">
+            Some of the most important things a person tells you are the things they never say out loud. I have learned to pick up on body language, tone shifts, and hesitation. When someone says "I am fine" but clearly is not, I notice. When a customer is confused but too polite to ask, I step in. That awareness comes naturally to me, and it changes the quality of every interaction I have.
+          </p>
+          <div class="exp-skills">
+            <span class="exp-skill-tag">Empathy</span>
+            <span class="exp-skill-tag">Situational Awareness</span>
+            <span class="exp-skill-tag">Patience</span>
+            <span class="exp-skill-tag">Trust Building</span>
+            <span class="exp-skill-tag">Composure Under Pressure</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 04 - WHAT SETS HER APART ====== -->
+  <section class="section diff-section" id="differentiators">
+    <div class="section-wide">
+      <div class="section-label reveal">03 - What Sets Me Apart</div>
+      <h2 class="section-title reveal reveal-delay-1">Beyond the Ordinary</h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        These are the things people notice about me. Not because I tell them, but because they experience it firsthand.
+      </p>
+
+      <div class="diff-grid">
+        <div class="diff-card reveal reveal-delay-1">
+          <div class="diff-number">01</div>
+          <h3>I Adapt Quickly</h3>
+          <p>New environment, new team, new industry. I settle in fast. I ask the right questions, observe carefully, and start contributing before most people have finished their orientation. Change does not unsettle me. It motivates me.</p>
+        </div>
+
+        <div class="diff-card reveal reveal-delay-2">
+          <div class="diff-number">02</div>
+          <h3>I Stay Calm When Things Get Difficult</h3>
+          <p>Difficult customers, unexpected problems, high-pressure situations. I have handled all of them. I do not get flustered. I slow down, think clearly, and find a way forward. People tend to calm down around me because I stay steady.</p>
+        </div>
+
+        <div class="diff-card reveal reveal-delay-3">
+          <div class="diff-number">03</div>
+          <h3>I Listen. Really Listen.</h3>
+          <p>Not the kind of listening where you are waiting for your turn to talk. The kind where you actually hear what someone is trying to tell you, even when they are struggling to say it. That is where real problem solving starts.</p>
+        </div>
+
+        <div class="diff-card reveal reveal-delay-1">
+          <div class="diff-number">04</div>
+          <h3>I Represent a Brand Well</h3>
+          <p>People have always told me I carry myself with a maturity beyond my age. I am presentable, well-spoken, and aware of how I come across. When I represent an organisation, people feel confident that I reflect well on the brand.</p>
+        </div>
+
+        <div class="diff-card reveal reveal-delay-2">
+          <div class="diff-number">05</div>
+          <h3>I Build Relationships, Not Transactions</h3>
+          <p>A customer who comes back is not coming back for the product. They are coming back because of how they were treated. I understand that. I focus on making every interaction feel personal, not procedural, and that is what creates loyalty.</p>
+        </div>
+
+        <div class="diff-card reveal reveal-delay-3">
+          <div class="diff-number">06</div>
+          <h3>I Take Responsibility Seriously</h3>
+          <p>If something is my job, I own it completely. I follow through on commitments, I show up on time, and I do not make excuses. Reliability is one of those quiet qualities that matters more than people realise until they need it most.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 05 - BUSINESS EXPOSURE ====== -->
+  <section class="section biz-section" id="exposure">
+    <div class="section-inner">
+      <div class="section-label reveal">04 - Business Exposure</div>
+      <h2 class="section-title reveal reveal-delay-1">Learning Business From the Inside</h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        Most people my age learn about business in a classroom. I learned about it at the dinner table, in client meetings, and watching my family navigate real deals with real stakes.
+      </p>
+
+      <div class="biz-content">
+        <div class="biz-narrative reveal">
+          <p>
+            My family runs a real estate business, and I have been part of that world for as long as I can remember. Not in a formal role, but in the way that matters. I sat in on meetings where clients were making some of the biggest financial decisions of their lives. I watched how my family handled nervous buyers, impatient sellers, and complicated negotiations.
+          </p>
+          <p>
+            What I took away from all of that was not just how deals get done. It was how <strong>trust gets built</strong>. I saw that the clients who stayed loyal were not the ones who got the best price. They were the ones who felt genuinely cared for. That lesson shaped everything about how I approach professional relationships today.
+          </p>
+          <p>
+            I also learned the practical side. How professional meetings are conducted. How business communication should sound. What it means to follow up properly. And why keeping your word is the most valuable thing you can do in any industry.
+          </p>
+        </div>
+
+        <div class="biz-highlights">
+          <div class="biz-highlight reveal reveal-delay-1">
+            <h4>Client-Facing Environments</h4>
+            <p>Years of observing and participating in real client interactions, understanding what builds confidence, what creates doubt, and how to navigate both with grace.</p>
+          </div>
+          <div class="biz-highlight reveal reveal-delay-2">
+            <h4>Professional Meeting Etiquette</h4>
+            <p>Comfortable in formal settings. I understand meeting dynamics, know when to speak and when to listen, and carry myself with the composure people expect from experienced professionals.</p>
+          </div>
+          <div class="biz-highlight reveal reveal-delay-3">
+            <h4>Negotiation Awareness</h4>
+            <p>I have watched skilled negotiators find solutions that work for everyone involved. I understand that good negotiation is not about winning. It is about making both sides feel respected and satisfied.</p>
+          </div>
+          <div class="biz-highlight reveal reveal-delay-4">
+            <h4>Relationship-Driven Business</h4>
+            <p>I learned early that repeat business comes from relationships, not marketing. When people trust you, they come back. When they come back, they bring others. That is the cycle I was raised to understand.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 06 - PROFESSIONAL CAPABILITIES ====== -->
+  <section class="section cap-section" id="capabilities">
+    <div class="section-inner">
+      <div class="section-label reveal">05 - Professional Capabilities</div>
+      <h2 class="section-title reveal reveal-delay-1">What I Bring With Me</h2>
+      <p class="section-subtitle reveal reveal-delay-2">
+        These strengths travel with me regardless of the industry, the role, or the title. They are the reason I am confident I can add value wherever I go.
+      </p>
+
+      <div class="cap-visual">
+        <div class="cap-row reveal">
+          <div class="cap-item">
+            <h3>Interpersonal Communication</h3>
+            <div class="cap-bar-container">
+              <div class="cap-bar" style="width: 95%"></div>
+            </div>
+            <p>Warm, clear, and always tuned to the person in front of me</p>
+          </div>
+          <div class="cap-item">
+            <h3>Relationship Building</h3>
+            <div class="cap-bar-container">
+              <div class="cap-bar" style="width: 95%"></div>
+            </div>
+            <p>Turning one-time interactions into lasting connections</p>
+          </div>
+          <div class="cap-item">
+            <h3>Emotional Intelligence</h3>
+            <div class="cap-bar-container">
+              <div class="cap-bar" style="width: 92%"></div>
+            </div>
+            <p>Understanding the unsaid and responding with care</p>
+          </div>
+        </div>
+
+        <div class="cap-row reveal reveal-delay-1">
+          <div class="cap-item">
+            <h3>Professional Presentation</h3>
+            <div class="cap-bar-container">
+              <div class="cap-bar" style="width: 90%"></div>
+            </div>
+            <p>Polished, composed, and always appropriate to the setting</p>
+          </div>
+          <div class="cap-item">
+            <h3>Adaptability</h3>
+            <div class="cap-bar-container">
+              <div class="cap-bar" style="width: 93%"></div>
+            </div>
+            <p>Comfortable with new people, new places, and new challenges</p>
+          </div>
+          <div class="cap-item">
+            <h3>Composure Under Pressure</h3>
+            <div class="cap-bar-container">
+              <div class="cap-bar" style="width: 88%"></div>
+            </div>
+            <p>Steady, focused, and clear-headed when things get intense</p>
+          </div>
+        </div>
+
+        <div class="cap-row reveal reveal-delay-2">
+          <div class="cap-item">
+            <h3>Customer Service Excellence</h3>
+            <div class="cap-bar-container">
+              <div class="cap-bar" style="width: 94%"></div>
+            </div>
+            <p>Creating positive experiences that people remember</p>
+          </div>
+          <div class="cap-item">
+            <h3>Team Collaboration</h3>
+            <div class="cap-bar-container">
+              <div class="cap-bar" style="width: 90%"></div>
+            </div>
+            <p>Reliable, supportive, and always pulling my weight</p>
+          </div>
+          <div class="cap-item">
+            <h3>Organisation and Follow-Through</h3>
+            <div class="cap-bar-container">
+              <div class="cap-bar" style="width: 87%"></div>
+            </div>
+            <p>If I say I will do something, it gets done. On time. Properly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 07 - CAREER VISION ====== -->
+  <section class="section vision-section" id="vision">
+    <div class="section-inner">
+      <div class="section-label reveal" style="justify-content: center;">06 - Career Vision</div>
+      <h2 class="section-title reveal reveal-delay-1">Where I Am Heading</h2>
+
+      <div class="vision-statement reveal reveal-delay-2">
+        I want to be in a role where my <em>ability to connect with people</em> is not just a nice addition to the work. It is the work. I want to build a career where trust, communication, and genuine human care drive real results for the organisation I am part of.
+      </div>
+
+      <div class="vision-pillars">
+        <div class="vision-pillar reveal reveal-delay-1">
+          <div class="vision-pillar-icon">Now</div>
+          <h3>Right Now</h3>
+          <p>Find a role where I can put my interpersonal strengths to work immediately. Contributing to client satisfaction, team morale, and the kind of first impressions that define an organisation's reputation.</p>
+        </div>
+        <div class="vision-pillar reveal reveal-delay-2">
+          <div class="vision-pillar-icon">Next</div>
+          <h3>Next Chapter</h3>
+          <p>Grow into someone clients specifically ask for. Become the person who understands their needs so well that they do not just trust me, they rely on me. That is the kind of professional I am working to become.</p>
+        </div>
+        <div class="vision-pillar reveal reveal-delay-3">
+          <div class="vision-pillar-icon">Future</div>
+          <h3>Long-Term</h3>
+          <p>Eventually, I want to lead. Not from a corner office, but from the front lines. Mentoring others, shaping how an organisation treats its clients, and proving that empathy and professionalism are not opposites. They are the same thing.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 50px;" class="reveal">
+        <div class="divider"></div>
+      </div>
+
+      <div style="margin-top: 30px; max-width: 600px; margin-left: auto; margin-right: auto;" class="reveal reveal-delay-1" data-block="closing-quote">
+        <p style="font-family: var(--font-display); font-size: 1.1rem; font-style: italic; color: var(--dark-gray); line-height: 1.7; text-align: center;">
+          "I am not looking for just a job. I am looking for a place that values what I bring as a person, and gives me the space to grow into someone even better."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 08 - PERSONAL INTRODUCTION ====== -->
+  <section class="section intro-section" id="introduction">
+    <div class="section-inner">
+      <div class="section-label reveal">07 - A Personal Introduction</div>
+      <h2 class="section-title reveal reveal-delay-1">In My Own Words</h2>
+
+      <div class="intro-text reveal reveal-delay-2">
+        <p>
+          My name is Astha Patel. I am nineteen years old, from Khalilabad in Uttar Pradesh, and if there is one thing I would want you to know about me before anything else, it is this: I genuinely care about people. Not in the way that sounds good in an interview. In the way that shows up when I remember a customer's name three weeks later. When I notice someone looks uncomfortable and quietly find a way to put them at ease. When I follow up on something simply because I said I would.
+        </p>
+        <p>
+          I started working early. I chose the professional world over waiting for a degree to tell me I was ready. At an authorised Hero dealership, I ran the front office. I greeted every person who walked in. I handled calls, coordinated with the sales team, resolved customer concerns, and made sure every visitor left feeling like their time and attention mattered. That experience taught me more about communication, patience, and professionalism than any classroom ever could.
+        </p>
+        <p>
+          But my real education started long before that. Growing up around my family's real estate business, I saw how professionals build trust from nothing. I watched how they handle pressure. I learned that the best relationships in business are built on the simplest things: honesty, consistency, and showing up when you say you will. Those lessons are not something I studied. They are part of who I am now.
+        </p>
+        <p>
+          I know I am young. I know my experience is still growing. But I also know something else. The qualities that matter most in any people-facing role, empathy, reliability, clear communication, composure, and genuine warmth, are not things you develop overnight. And they are not things you can fake. I have them. I have carried them with me through every role I have held. And I am ready to bring them wherever I go next.
+        </p>
+      </div>
+
+      <div class="intro-signature reveal reveal-delay-3">
+        <div class="name">Deepika Goyal</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== 09 - REFERENCES & CONTACT ====== -->
+  <section class="section contact-section" id="contact">
+    <div class="section-inner">
+      <div class="section-label reveal" style="justify-content: center;">08 - Let's Connect</div>
+      <h2 class="section-title reveal reveal-delay-1" style="text-align: center;">Get in Touch</h2>
+      <!-- Contact grid injected by content-loader.js -->
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="page-footer">
+    <div class="footer-brand">Deepika Goyal</div>
+    <p class="footer-text">Personal Brand Portfolio</p>
+  </footer>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+
+
+
+  <!-- ====== JAVASCRIPT LIBRARIES ====== -->
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+  <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+  <script src="https://unpkg.com/split-type"></script>
+  <script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Blotter/0.1.0/blotter.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Blotter/0.1.0/materials/liquidDistortMaterial.min.js"></script>
+
+  <!-- ====== JAVASCRIPT ====== -->
+  <!-- script.js loads first to expose initializeAnimations globally -->
+  <script src="js/script.js" defer></script>
+  <!-- content-loader fetches JSON and populates DOM, then calls initializeAnimations -->
+  <script src="js/content-loader.js" defer></script>
+  <!-- feature-flags fetches flags.json and sets up the panel -->
+  <script src="js/feature-flags.js" defer></script>
+  <script src="js/visual-editor.js" defer></script>
+</body>
+</html>
+
+

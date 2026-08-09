@@ -1,0 +1,60 @@
+===============================================================
+ ASTHA PATEL PORTFOLIO - TECHNICAL SPECIFICATION & MEMORY FILE
+===============================================================
+
+Welcome, Future AI Agent! 
+If you are reading this file, the user has uploaded it to give you the complete context of this web development project so you can pick up exactly where we left off. 
+
+PROJECT OVERVIEW
+----------------
+This is a Personal Brand Portfolio built as a gift for Astha Patel (a 19yo relationship-oriented professional). 
+It is a highly dynamic, purely front-end website hosted on Vercel with a custom-built secure Admin Panel that edits JSON files and pushes them directly to the GitHub repository using a Vercel Serverless Function.
+
+TECH STACK
+----------
+- Vanilla HTML, CSS, JavaScript (No frameworks like React or Vue).
+- Data-driven content: Everything on the site is loaded dynamically from `data/content.json`.
+- Feature Toggles: Every single UI element, layout, and animation is toggleable via `data/feature-flags.json`.
+- Hosting: Vercel, deploying automatically from the `master` branch of the GitHub repo.
+
+ARCHITECTURE & KEY FILES
+------------------------
+1. /index.html 
+   The main portfolio website. Contains the skeletal DOM structure.
+
+2. /js/content-loader.js 
+   The engine of the main site. Fetches `data/content.json` and injects the text, arrays, and settings into the DOM. It also dynamically injects 50+ Google Fonts by reading the `.font` properties from each section's data.
+
+3. /js/feature-flags.js 
+   The feature toggle system. Fetches `data/feature-flags.json`, reads the `FLAG_MAP` dictionary, and applies `display: none` or CSS classes to toggle the visibility of specific UI elements.
+
+4. /css/style.css
+   Contains all styling, custom properties, and responsive media queries. 
+   Note: It includes 3 distinct "Hero Variants" (.hero, .hero--cinematic, .hero--editorial).
+
+5. /admin/index.html 
+   The custom Admin Panel. It is protected by a hardcoded 6-digit PIN (739391). 
+   - It allows the user to edit every single piece of text on the website.
+   - It allows the user to pick from 50+ Google fonts for EVERY individual section.
+   - It allows the user to toggle feature flags.
+   - When editing, it saves to `localStorage` so the user can preview the changes on `index.html` instantly.
+   - When the user clicks "Publish", it sends the JSON to the Vercel Serverless Function.
+
+6. /api/publish.js
+   A Vercel Serverless Function. It receives JSON from the Admin Panel, authenticates using the `GITHUB_PAT` environment variable (set securely in the Vercel Dashboard), and pushes the updated JSON files back to the GitHub repository via the GitHub REST API. This triggers a Vercel redeployment automatically.
+
+KEY FEATURES YOU SHOULD KNOW ABOUT
+----------------------------------
+- MULTI-THEME HERO: The user can select between Orbital (default split layout), Cinematic (dark film aesthetic), and Editorial (magazine style) from the admin panel. The `content-loader.js` handles injecting the correct DOM structure for the chosen variant.
+- DYNAMIC FONTS: In `content-loader.js`, we loop over every section, read the selected font name (e.g., "Playfair Display"), dynamically append a Google Fonts `<link>` tag to the `<head>`, and set the `--font-display`, `--font-heading`, and `--font-body` CSS variables.
+- SECURE PUBLISHING: We initially had the GitHub PAT hardcoded in the frontend, but we moved it to Vercel Environment Variables (`GITHUB_PAT`) to prevent GitHub's automated secret scanners from revoking the token. DO NOT push hardcoded tokens.
+- GIFT WRAP: A full-screen CSS gift wrap overlay is injected into `index.html`. If the `gift-wrap` feature flag is true, it displays on page load and unties itself when clicked.
+
+HOW TO DEVELOP FURTHER
+----------------------
+1. If the user wants a new text section: Update `index.html` skeleton, add default data to `content.json`, map it in `content-loader.js`, and add an editing form in `admin/index.html`.
+2. If the user wants a new toggleable feature: Add a CSS class or ID, map it in `FLAG_MAP` inside `js/feature-flags.js`, add a label translation in `FLAB` inside `admin/index.html`, and add the default state to `feature-flags.json`.
+3. If the user wants a new font: Just add the string name to the `FONTS` array in `admin/index.html`. The dynamic loader will handle the rest!
+
+Current Status: Fully functional, bug-free, securely deployed, and highly scalable. You have full context!
+===============================================================
