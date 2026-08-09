@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    CONTENT LOADER
    Fetches content.json + feature-flags.json,
    renders hero variant, injects all content,
@@ -349,13 +349,13 @@ function renderContact(data) {
 
     // ── Admin content override (set by admin panel) ──
     try {
-      const adminContent = localStorage.getItem('astha-admin-content');
+      const adminContent = localStorage.getItem('deepika-admin-content');
       if (adminContent) data = JSON.parse(adminContent);
     } catch(e) {}
 
     // ── Merge localStorage flag overrides (from FF panel or admin panel) ──
     try {
-      const storedFlags = localStorage.getItem('astha-portfolio-flags');
+      const storedFlags = localStorage.getItem('deepika-portfolio-flags');
       if (storedFlags) Object.assign(flags, JSON.parse(storedFlags));
     } catch(e) {}
 
@@ -397,7 +397,7 @@ function renderContact(data) {
     }
     
     try {
-      const adminColors = localStorage.getItem('astha-admin-theme-colors');
+      const adminColors = localStorage.getItem('deepika-admin-theme-colors');
       if (adminColors) {
         const allAdminColors = JSON.parse(adminColors);
         if (allAdminColors[heroVariant]) {

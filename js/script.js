@@ -1,5 +1,5 @@
-/* ============================================
-   ASTHA PATEL - Personal Brand Portfolio
+﻿/* ============================================
+   DEEPIKA GOYAL - Personal Brand Portfolio
    Interactive Behaviors & Animations
    ============================================ */
 

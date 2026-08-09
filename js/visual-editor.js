@@ -1,4 +1,4 @@
-/**
+﻿/**
  * True WYSIWYG Visual Editor
  * Injected when URL contains ?edit=colors
  */
@@ -9,7 +9,7 @@
 
   let currentTheme = 'orbital';
   try {
-    const flags = JSON.parse(localStorage.getItem('astha-portfolio-flags') || '{}');
+    const flags = JSON.parse(localStorage.getItem('deepika-portfolio-flags') || '{}');
     currentTheme = flags['hero-variant'] || 'orbital';
   } catch (e) {}
 
@@ -17,7 +17,7 @@
   let currentElements = {};
 
   try {
-    savedData = JSON.parse(localStorage.getItem('astha-admin-theme-colors') || '{}');
+    savedData = JSON.parse(localStorage.getItem('deepika-admin-theme-colors') || '{}');
     if (!savedData[currentTheme]) {
       savedData[currentTheme] = { vars: {}, elements: {} };
     } else if (!savedData[currentTheme].elements) {
@@ -299,7 +299,7 @@
   window.veSave = function() {
     try {
       savedData[currentTheme].elements = currentElements;
-      localStorage.setItem('astha-admin-theme-colors', JSON.stringify(savedData));
+      localStorage.setItem('deepika-admin-theme-colors', JSON.stringify(savedData));
       alert('Changes saved! Return to the Admin Panel to publish.');
     } catch(e) {
       alert('Error saving changes.');

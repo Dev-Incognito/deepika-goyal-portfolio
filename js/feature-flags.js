@@ -1,4 +1,4 @@
-/* ============================================
+﻿/* ============================================
    FEATURE FLAGS SYSTEM
    Toggles for every element on the portfolio
    ============================================ */
@@ -6,7 +6,7 @@
 (function() {
   'use strict';
 
-  const STORAGE_KEY = 'astha-portfolio-flags';
+  const STORAGE_KEY = 'deepika-portfolio-flags';
 
   // Flag-to-DOM mapping
   const FLAG_MAP = {
