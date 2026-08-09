@@ -104,7 +104,6 @@ function renderHeroCinematic(data) {
         ${data.hero.nameFirst}
         <span class="cin-last">${data.hero.nameLast}</span>
       </h1>
-      <div class="hero-cin-divider"></div>
       <p class="hero-cin-statement">${data.hero.statement}</p>
       <div class="hero-cin-actions">
         <button class="hero-cin-btn" onclick="scrollToSection('brand')">
