@@ -1,4 +1,4 @@
-﻿/* ============================================
+/* ============================================
    CONTENT LOADER
    Fetches content.json + feature-flags.json,
    renders hero variant, injects all content,
@@ -115,9 +115,9 @@ function renderHeroCinematic(data) {
       </div>
     </div>
     <div class="hero-cin-meta">
-      <span>Age 19</span>
-      <span>Khalilabad · UP · IN</span>
-      <span>EN · HI</span>
+      <span>HR & Digital</span>
+      <span>Sangrur • PB • IN</span>
+      <span>EN • HI • PA</span>
     </div>
   `;
 }
