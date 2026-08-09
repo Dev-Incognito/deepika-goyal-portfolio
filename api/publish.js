@@ -66,3 +66,5 @@ module.exports = async function (req, res) {
     return res.status(500).json({ error: err.message });
   }
 };
+
+// Trigger Vercel deploy
