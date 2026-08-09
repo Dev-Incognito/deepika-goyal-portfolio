@@ -43,16 +43,47 @@
         "color": "#ffe0e0"
       },
       "section#introduction > div.section-inner > h2.section-title.reveal.reveal-delay-1.gsap-observed.split-applied > div.line > div.word": {
-        "color": "#000000"
+        "color": "#ffae00"
       },
       "section#introduction > div.section-inner > div.intro-text.reveal.reveal-delay-2.gsap-observed > p.split-applied > div.line > div.word": {
-        "color": "#000000"
+        "color": "#ffffff"
       },
       "section#introduction > div.section-inner > div.intro-signature.reveal.reveal-delay-3.gsap-observed > div.name": {
         "color": "#ffffff"
       },
       "#mainNav": {
-        "background-color": "#ee00ff"
+        "background-color": "#000000"
+      },
+      "section#capabilities > div.section-inner > div.cap-visual > div.cap-row.reveal.gsap-observed > div.cap-item.tilt-applied > p.split-applied > div.line": {
+        "color": "#000000"
+      },
+      "section#capabilities > div.section-inner > div.cap-visual > div.cap-row.reveal.gsap-observed > div.cap-item.tilt-applied > div.cap-bar-container": {
+        "background-color": "#ffa305"
+      },
+      "section#capabilities > div.section-inner > div.cap-visual > div.cap-row.reveal.gsap-observed > div.cap-item.tilt-applied > h3.split-applied > div.line > div.word": {
+        "color": "#ffa600"
+      },
+      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-social-panel > div.contact-social-heading": {
+        "color": "#ffae00"
+      },
+      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-social-panel > div.social-icon-buttons > button.social-icon-btn": {
+        "color": "#000000",
+        "background-color": "#c8aa3c"
+      },
+      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-social-panel > div.social-icon-buttons > button.social-icon-btn > div.social-btn-text > span.social-btn-name": {
+        "color": "#fafafa"
+      },
+      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-social-panel > div.social-icon-buttons > button.social-icon-btn > div.social-btn-text > span.social-btn-handle": {
+        "color": "#ffffff"
+      },
+      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-profile > div.contact-details-list > div.contact-detail-row > div:nth-child(2) > div.contact-detail-label": {
+        "color": "#ffd500"
+      },
+      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-profile > div.contact-details-list > div.contact-detail-row > div.contact-detail-icon": {
+        "border-color": "#ffa600"
+      },
+      "section#capabilities > div.section-inner > div.cap-visual > div.cap-row.reveal.gsap-observed > div.cap-item.tilt-applied": {
+        "background-color": "#ffffff"
       }
     }
   },
