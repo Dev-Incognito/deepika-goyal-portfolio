@@ -1808,8 +1808,7 @@ a {
   z-index: 3;
   padding: 80px;
   padding-bottom: 100px;
-  max-width: 750px;
-  animation: cinFadeIn 1.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+  max-width: 600px;
 }
 
 @keyframes cinFadeIn {
@@ -1846,6 +1845,11 @@ a {
   color: #fff;
   letter-spacing: -0.02em;
   margin: 0;
+  transition: transform 0.4s ease, text-shadow 0.4s ease;
+}
+.hero-cin-name:hover {
+  transform: translateY(-5px) scale(1.02);
+  text-shadow: 0 15px 40px rgba(0,0,0,0.6);
 }
 
 .hero-cin-name .cin-last {
@@ -1871,6 +1875,12 @@ a {
   line-height: 1.8;
   max-width: 480px;
   margin: 0;
+  margin-top: 30px;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.hero-cin-statement:hover {
+  opacity: 1;
+  transform: translateX(10px);
 }
 
 .hero-cin-actions {
