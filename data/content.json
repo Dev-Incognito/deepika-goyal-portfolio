@@ -43,8 +43,8 @@
       "Impact"
     ],
     "statement": "A dual-domain professional who brings people-first HR thinking and creative digital marketing together to build organisations that grow from the inside out.",
-    "scrollBtn": "Discover More",
-    "font": "Montserrat"
+    "scrollBtn": "Know More",
+    "font": "Playfair Display"
   },
   "brand": {
     "sectionLabel": "01 - Personal Brand",
@@ -296,7 +296,7 @@
         "text": "English, Hindi and Punjabi"
       }
     ],
-    "footer": "\"I would love to connect and show you what I can bring to your team. Let us talk.\"",
+    "footer": "",
     "references": "References available upon request",
     "social": [
       {
