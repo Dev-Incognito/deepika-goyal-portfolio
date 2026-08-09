@@ -14,7 +14,7 @@ module.exports = async function (req, res) {
   }
 
   const repoOwner = 'Dev-Incognito';
-  const repoName = 'astha-patel-portfolio';
+  const repoName = 'deepika-goyal-portfolio';
   const url = `https://api.github.com/repos/${repoOwner}/${repoName}/contents/${path}`;
 
   try {
