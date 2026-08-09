@@ -48,6 +48,7 @@ function createQRModal() {
   function closeModal() {
     backdrop.classList.remove('open');
     document.body.style.overflow = '';
+  }
   document.getElementById('qrModalClose').addEventListener('click', closeModal);
   backdrop.addEventListener('click', (e) => { if (e.target === backdrop) closeModal(); });
   document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
