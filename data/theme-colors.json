@@ -50,6 +50,9 @@
       },
       "section#introduction > div.section-inner > div.intro-signature.reveal.reveal-delay-3.gsap-observed > div.name": {
         "color": "#ffffff"
+      },
+      "#mainNav": {
+        "background-color": "#ee00ff"
       }
     }
   },
