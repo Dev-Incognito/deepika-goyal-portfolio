@@ -1,6 +1,58 @@
 {
   "orbital": {},
-  "cinematic": {},
+  "cinematic": {
+    "vars": {},
+    "elements": {
+      "section#hero > div.hero-cin-content > h1.hero-cin-name > span.cin-last > div.word > div.char": {
+        "color": "#ffffff"
+      },
+      "section#brand > div.section-inner > div.brand-grid > div.brand-values > div.value-card.reveal.reveal-delay-3.gsap-observed.tilt-applied": {
+        "background-color": "#000000"
+      },
+      "section#brand > div.section-inner > div.brand-grid > div.brand-values > div.value-card.reveal.reveal-delay-4.gsap-observed.tilt-applied": {
+        "background-color": "#000000"
+      },
+      "section#brand > div.section-inner > div.brand-grid > div.brand-values > div.value-card.reveal.reveal-delay-1.gsap-observed.tilt-applied": {
+        "background-color": "#000000"
+      },
+      "section#brand > div.section-inner > div.brand-grid > div.brand-values > div.value-card.reveal.reveal-delay-2.gsap-observed.tilt-applied": {
+        "background-color": "#000000"
+      },
+      "#differentiators": {
+        "background-color": "#000000"
+      },
+      "#contact": {
+        "background-color": "#8c1aff"
+      },
+      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-profile > div.contact-profile-header > div:nth-child(2) > div.contact-profile-tagline": {
+        "color": "#ffffff"
+      },
+      "section#contact > div.section-inner > div.contact-grid.reveal.gsap-observed > div.contact-profile > div.contact-profile-header > div:nth-child(2) > h3.contact-profile-name": {
+        "color": "#faf5ff"
+      },
+      "footer.page-footer": {
+        "background-color": "#000000"
+      },
+      "footer.page-footer > div.footer-brand": {
+        "color": "#f9dcdc"
+      },
+      "section#hero > div.hero-cin-content > h1.hero-cin-name > div.word > div.char": {
+        "color": "#ffffff"
+      },
+      "section#hero > div.hero-cin-content > p.hero-cin-statement": {
+        "color": "#ffe0e0"
+      },
+      "section#introduction > div.section-inner > h2.section-title.reveal.reveal-delay-1.gsap-observed.split-applied > div.line > div.word": {
+        "color": "#000000"
+      },
+      "section#introduction > div.section-inner > div.intro-text.reveal.reveal-delay-2.gsap-observed > p.split-applied > div.line > div.word": {
+        "color": "#000000"
+      },
+      "section#introduction > div.section-inner > div.intro-signature.reveal.reveal-delay-3.gsap-observed > div.name": {
+        "color": "#ffffff"
+      }
+    }
+  },
   "galaxy": {},
   "pookie": {},
   "modern": {},
