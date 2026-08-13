@@ -40,11 +40,11 @@
     "tagline": [
       "People",
       "Strategy",
-      "Impact"
+      "Impact",
+      "Test"
     ],
     "statement": "A dual-domain professional who brings people-first HR thinking and creative digital marketing together to build organisations that grow from the inside out.",
-    "scrollBtn": "Know More",
-    "font": "Playfair Display"
+    "scrollBtn": "Discover More"
   },
   "brand": {
     "sectionLabel": "01 - Personal Brand",
@@ -296,20 +296,20 @@
         "text": "English, Hindi and Punjabi"
       }
     ],
-    "footer": "",
+    "footer": "\"I would love to connect and show you what I can bring to your team. Let us talk.\"",
     "references": "References available upon request",
     "social": [
       {
         "platform": "instagram",
         "label": "Instagram",
-        "handle": "@_deepika_g",
+        "handle": "@workwithdeepika",
         "url": "https://instagram.com/workwithdeepika"
       },
       {
         "platform": "x",
         "label": "LinkedIn",
         "handle": "Deepika Goyal",
-        "url": "https://www.linkedin.com/in/deepika-g-9055b9235?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+        "url": "https://linkedin.com/in/deepikagoyal"
       }
     ]
   }
