@@ -296,6 +296,13 @@ async function initDash(){await load();show('hero');}
 async function load(){
   const lc=localStorage.getItem(LSC);
   if(lc){try{content=JSON.parse(lc);}catch(e){await fc();}}else{await fc();}
+  if(content && content.contact && Array.isArray(content.contact.social)){
+    content.contact.social.forEach(s => {
+      const str = ((s.label||'') + ' ' + (s.url||'') + ' ' + (s.platform||'')).toLowerCase();
+      if(str.includes('linkedin')) s.platform = 'linkedin';
+    });
+    localStorage.setItem(LSC, JSON.stringify(content));
+  }
   const lf=localStorage.getItem(LSF);
   if(lf){try{flags=JSON.parse(lf);}catch(e){await ff2();}}else{await ff2();}
   const lt=localStorage.getItem(LST);
