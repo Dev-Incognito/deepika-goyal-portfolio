@@ -34,6 +34,26 @@ function resolvePlatform(s) {
   return p || 'linkedin';
 }
 
+function getLuminance(hexOrRgb) {
+  if (!hexOrRgb || hexOrRgb === 'transparent' || hexOrRgb === 'rgba(0, 0, 0, 0)') return null;
+  let r = 0, g = 0, b = 0;
+  if (typeof hexOrRgb === 'string' && hexOrRgb.startsWith('#')) {
+    let hex = hexOrRgb.replace('#', '');
+    if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+    r = parseInt(hex.substring(0, 2), 16) || 0;
+    g = parseInt(hex.substring(2, 4), 16) || 0;
+    b = parseInt(hex.substring(4, 6), 16) || 0;
+  } else if (typeof hexOrRgb === 'string' && hexOrRgb.startsWith('rgb')) {
+    const parts = hexOrRgb.match(/\d+/g);
+    if (parts && parts.length >= 3) {
+      r = parseInt(parts[0]) || 0;
+      g = parseInt(parts[1]) || 0;
+      b = parseInt(parts[2]) || 0;
+    }
+  }
+  return 0.299 * r + 0.587 * g + 0.114 * b;
+}
+
 const iconMap = {
   'E': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>',
   'C': '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>',
@@ -441,6 +461,20 @@ function renderContact(data) {
       const adminColors = localStorage.getItem('deepika-admin-theme-colors');
       if (adminColors) {
         const allAdminColors = JSON.parse(adminColors);
+        let purged = false;
+        for (const th of Object.keys(allAdminColors)) {
+          if (allAdminColors[th] && allAdminColors[th].elements) {
+            for (const sel of Object.keys(allAdminColors[th].elements)) {
+              if (sel.includes('cap-item') || sel.includes('capabilities')) {
+                delete allAdminColors[th].elements[sel];
+                purged = true;
+              }
+            }
+          }
+        }
+        if (purged) {
+          try { localStorage.setItem('deepika-admin-theme-colors', JSON.stringify(allAdminColors)); } catch(e) {}
+        }
         if (allAdminColors[heroVariant]) {
           const ad = allAdminColors[heroVariant];
           if (ad.elements || ad.vars) {
@@ -650,6 +684,31 @@ function renderContact(data) {
     if (typeof window.initializeAnimations === 'function') {
       window.initializeAnimations();
     }
+
+    // ── Universal Contrast Enforcement Engine ──
+    // Guarantees that card text and background can never match or be invisible
+    function enforceElementContrast() {
+      document.querySelectorAll('.cap-item, .value-card, .vision-pillar, .diff-block, .diff-card, .card').forEach(el => {
+        const bg = window.getComputedStyle(el).backgroundColor;
+        const lum = getLuminance(bg);
+        if (lum !== null) {
+          if (lum > 160) {
+            // Light background: headings must be dark, descriptions must be dark slate
+            el.querySelectorAll('h3, h4').forEach(h => h.style.setProperty('color', '#0f172a', 'important'));
+            el.querySelectorAll('p, span:not(.cap-emoji)').forEach(p => p.style.setProperty('color', '#334155', 'important'));
+            el.querySelectorAll('.cap-bar-container').forEach(c => c.style.setProperty('background', '#e2e8f0', 'important'));
+            el.querySelectorAll('.cap-bar').forEach(b => b.style.setProperty('background', '#c5a059', 'important'));
+          } else if (lum < 60) {
+            // Dark background: headings must be gold, descriptions must be crisp light gray
+            el.querySelectorAll('h3, h4').forEach(h => h.style.setProperty('color', '#c5a059', 'important'));
+            el.querySelectorAll('p, span:not(.cap-emoji)').forEach(p => p.style.setProperty('color', '#cbd5e1', 'important'));
+            el.querySelectorAll('.cap-bar-container').forEach(c => c.style.setProperty('background', 'rgba(255, 255, 255, 0.08)', 'important'));
+            el.querySelectorAll('.cap-bar').forEach(b => b.style.setProperty('background', '#c5a059', 'important'));
+          }
+        }
+      });
+    }
+    enforceElementContrast();
 
     // Wire up social QR buttons (after contact DOM is rendered)
     const qrModal = createQRModal();

@@ -2774,10 +2774,57 @@ body.theme-cinematic .nav {
 body.theme-cinematic .value-card,
 body.theme-cinematic .vision-pillar,
 body.theme-cinematic .card,
-body.theme-cinematic .diff-block {
-  background: #0a0a0a;
-  border: 1px solid #222;
-  color: #ffffff;
+body.theme-cinematic .diff-block,
+body.theme-cinematic .diff-card,
+body.theme-cinematic .cap-item {
+  background: #0d0d12 !important;
+  border: 1px solid rgba(197, 160, 89, 0.25) !important;
+  color: #ffffff !important;
+}
+
+body.theme-cinematic .cap-item h3 {
+  color: #c5a059 !important;
+}
+
+body.theme-cinematic .cap-item p {
+  color: #cbd5e1 !important;
+}
+
+body.theme-cinematic .cap-bar-container {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+body.theme-cinematic .cap-bar {
+  background: #c5a059 !important;
+}
+
+/* ─── Universal Contrast Guard: Prevents same background & text color ─── */
+.cap-item[style*="background: rgb(255"],
+.cap-item[style*="background-color: rgb(255"],
+.cap-item[style*="#ffffff"],
+.cap-item[style*="#FFFFFF"],
+.cap-item[style*="#fff"],
+.cap-item[style*="#FFF"] {
+  background: #ffffff !important;
+  border-color: #cbd5e1 !important;
+}
+
+.cap-item[style*="background: rgb(255"] p,
+.cap-item[style*="background-color: rgb(255"] p,
+.cap-item[style*="#ffffff"] p,
+.cap-item[style*="#FFFFFF"] p,
+.cap-item[style*="#fff"] p,
+.cap-item[style*="#FFF"] p {
+  color: #1e293b !important;
+}
+
+.cap-item[style*="background: rgb(255"] h3,
+.cap-item[style*="background-color: rgb(255"] h3,
+.cap-item[style*="#ffffff"] h3,
+.cap-item[style*="#FFFFFF"] h3,
+.cap-item[style*="#fff"] h3,
+.cap-item[style*="#FFF"] h3 {
+  color: #0f172a !important;
 }
 
 body.theme-cinematic h1,

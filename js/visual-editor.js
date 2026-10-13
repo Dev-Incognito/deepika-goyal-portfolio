@@ -257,10 +257,69 @@
     popupOpen = true;
   }
 
+  function getLuminance(hexOrRgb) {
+    if (!hexOrRgb || hexOrRgb === 'transparent' || hexOrRgb === 'rgba(0, 0, 0, 0)') return null;
+    let r = 0, g = 0, b = 0;
+    if (hexOrRgb.startsWith('#')) {
+      let hex = hexOrRgb.replace('#', '');
+      if (hex.length === 3) hex = hex.split('').map(c => c + c).join('');
+      r = parseInt(hex.substring(0, 2), 16) || 0;
+      g = parseInt(hex.substring(2, 4), 16) || 0;
+      b = parseInt(hex.substring(4, 6), 16) || 0;
+    } else if (hexOrRgb.startsWith('rgb')) {
+      const parts = hexOrRgb.match(/\d+/g);
+      if (parts && parts.length >= 3) {
+        r = parseInt(parts[0]) || 0;
+        g = parseInt(parts[1]) || 0;
+        b = parseInt(parts[2]) || 0;
+      }
+    }
+    return 0.299 * r + 0.587 * g + 0.114 * b;
+  }
+
   window.veUpdateProp = function(prop, color) {
     if (!currentElements[activeSelector]) currentElements[activeSelector] = {};
     currentElements[activeSelector][prop] = color;
     
+    // Automatic Contrast Enforcement: Prevent same/invisible text and background color
+    if (activeElement) {
+      const comp = window.getComputedStyle(activeElement);
+      if (prop === 'background-color') {
+        const bgLum = getLuminance(color);
+        if (bgLum !== null) {
+          const textVal = currentElements[activeSelector]['color'] || comp.color;
+          const textLum = getLuminance(textVal) ?? 255;
+          // If contrast difference is too low (< 90), auto-flip text to high contrast
+          if (Math.abs(bgLum - textLum) < 90) {
+            const safeText = bgLum > 130 ? '#0f172a' : '#ffffff';
+            currentElements[activeSelector]['color'] = safeText;
+            const textRow = document.getElementById('prow-color');
+            if (textRow) {
+              textRow.classList.add('overridden');
+              textRow.querySelector('.ve-color-wrap').style.background = safeText;
+              textRow.querySelector('input').value = rgbToHex(safeText);
+            }
+          }
+        }
+      } else if (prop === 'color') {
+        const textLum = getLuminance(color);
+        if (textLum !== null) {
+          const bgVal = currentElements[activeSelector]['background-color'] || comp.backgroundColor;
+          const bgLum = getLuminance(bgVal) ?? 0;
+          if (Math.abs(bgLum - textLum) < 90) {
+            const safeBg = textLum > 130 ? '#0a0a0f' : '#ffffff';
+            currentElements[activeSelector]['background-color'] = safeBg;
+            const bgRow = document.getElementById('prow-background-color');
+            if (bgRow) {
+              bgRow.classList.add('overridden');
+              bgRow.querySelector('.ve-color-wrap').style.background = safeBg;
+              bgRow.querySelector('input').value = rgbToHex(safeBg);
+            }
+          }
+        }
+      }
+    }
+
     const row = document.getElementById(`prow-${prop}`);
     if (row) {
       row.classList.add('overridden');
