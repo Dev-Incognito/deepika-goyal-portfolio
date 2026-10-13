@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -545,7 +545,7 @@ function rCon(){
   (c.social||[]).map((s,i)=>
     '<div class="ai"><div class="ahd"><div class="at">'+esc(s.label)+'</div><button class="ibtn dl" onclick="content.contact.social.splice('+i+',1);sv();show(\'contact\');">X</button></div>'+
     '<div class="fg">'+
-    fld('Platform ID','<input type="text" class="fi" value="'+esc(s.platform||'')+'" placeholder="instagram/x/facebook" oninput="content.contact.social['+i+'].platform=this.value;dsv();">')+
+    fld('Platform ID','<input type="text" class="fi" value="'+esc(s.platform||'')+'" placeholder="linkedin/instagram/x/facebook" oninput="content.contact.social['+i+'].platform=this.value;dsv();">')+
     fld('Label','<input type="text" class="fi" value="'+esc(s.label||'')+'" oninput="content.contact.social['+i+'].label=this.value;dsv();">')+
     fld('Handle','<input type="text" class="fi" value="'+esc(s.handle||'')+'" oninput="content.contact.social['+i+'].handle=this.value;dsv();">')+
     fld('Profile URL','<input type="url" class="fi" value="'+esc(s.url||'')+'" oninput="content.contact.social['+i+'].url=this.value;dsv();">',true)+
