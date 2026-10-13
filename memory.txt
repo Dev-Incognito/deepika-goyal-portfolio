@@ -1,5 +1,5 @@
 ===============================================================
- ASTHA PATEL PORTFOLIO - TECHNICAL SPECIFICATION & MEMORY FILE
+ DEEPIKA GOYAL PORTFOLIO - TECHNICAL SPECIFICATION & MEMORY FILE
 ===============================================================
 
 Welcome, Future AI Agent! 
@@ -7,7 +7,7 @@ If you are reading this file, the user has uploaded it to give you the complete 
 
 PROJECT OVERVIEW
 ----------------
-This is a Personal Brand Portfolio built as a gift for Astha Patel (a 19yo relationship-oriented professional). 
+This is a Personal Brand Portfolio built for Deepika Goyal (a BBA graduate & HR/Operations professional). 
 It is a highly dynamic, purely front-end website hosted on Vercel with a custom-built secure Admin Panel that edits JSON files and pushes them directly to the GitHub repository using a Vercel Serverless Function.
 
 TECH STACK
